@@ -26,11 +26,11 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: Sign APK
-        id: sign_apk
+      - name: Sign AAB
+        id: sign_aab
         uses: r0adkll/sign-android-release@v1
         with:
-          releaseDirectory: app/build/outputs/apk/release
+          releaseDirectory: app/build/outputs/bundle/release
           signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           alias: ${{ secrets.ANDROID_KEYALIAS_NAME }}
           keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASS }}
