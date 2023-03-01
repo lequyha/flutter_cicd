@@ -45,10 +45,10 @@ jobs:
       - run: flutter build appbundle
 
       - name: Create github artifact release
-          uses: ncipollo/release-action@v1
-          with:
-            name: android-release
-            path: build/app/outputs/bundle/release/app-release.aab
+        uses: ncipollo/release-action@v1
+        with:
+          name: android-release
+          path: build/app/outputs/bundle/release/app-release.aab
 
   deploy:
     name: Deploy Android Build
