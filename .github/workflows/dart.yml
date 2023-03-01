@@ -41,7 +41,7 @@ jobs:
           echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > ${{env.ANDROID_STORE_FILE_PATH}}
           echo storeFile=\${{ env.STORE_FILE_PATH }} >> ${{env.PROPERTIES_PATH}}
       
-        - run: |
+      - run: |
           echo "${{ secrets.GOOGLE_PLAY_KEY_FILE }}" > ${{env.GOOGLE_STORE_CREDENTAILS_PATH}}
 
 
