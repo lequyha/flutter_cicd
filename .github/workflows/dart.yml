@@ -44,11 +44,16 @@ jobs:
 
       - run: flutter build appbundle
 
-      - name: Upload
+      - name: Upload app bundle artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Build Artifacts
-          path: app/build/outputs/
+          name: appbundle
+          path: build/app/outputs/bundle/release/app-release.aab
+      - name: Run Fastlane #Give a name to your action
+        uses: maierj/fastlane-action@v1.4.0 #Use this plugin developed by the community for the fastlane actions
+        with:
+          lane: beta #Here you can define the lane need to be executed with the work flow.
+          subdirectory: android #mention if the fastlane folder is inside the android folder.
 
 
 
