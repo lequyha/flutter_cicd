@@ -15,7 +15,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-Android
       - uses: actions/setup-java@v2
         with:
           distribution: 'zulu'
@@ -23,6 +27,20 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+      - uses: game-ci/unity-builder@v2
+        with:
+          targetPlatform: Android
+          androidAppBundle: true
+          androidKeystoreName: user
+          androidKeystoreBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          androidKeystorePass: ${{ secrets.ANDROID_KEYSTORE_PASS }}
+          androidKeyaliasName: ${{ secrets.ANDROID_KEYALIAS_NAME }}
+          androidKeyaliasPass: ${{ secrets.ANDROID_KEYALIAS_PASS }}
+          androidTargetSdkVersion: AndroidApiLevel31
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build-Android
+          path: build/Android
       - run: flutter pub get
       - run: flutter test
       - run: flutter build apk
