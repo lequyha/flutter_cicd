@@ -36,8 +36,8 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Run project source
-        run: flutter run
+      - name: Build apk
+        run: flutter build apk
         env:
           SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_KEYALIAS_NAME }}
           SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_KEYALIAS_PASS }}
