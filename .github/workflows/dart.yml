@@ -14,6 +14,7 @@ env:
   JAVA_VERSION: "12.x"
   FLUTTER_CHANNEL: "stable"
   PROPERTIES_PATH: "./android/key.properties"
+  ANDROID_STORE_FILE_PATH: "./android/keystore.jks"
   STORE_FILE_PATH: "../keystore.jks"
 
 
@@ -36,8 +37,10 @@ jobs:
           echo keyAlias=\${{ secrets.ANDROID_KEYALIAS_NAME }} >> ${{env.PROPERTIES_PATH}}
 
       - run: |
-          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > ${{env.STORE_FILE_PATH}}
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > ${{env.ANDROID_STORE_FILE_PATH}}
           echo storeFile=\${{ env.STORE_FILE_PATH }} >> ${{env.PROPERTIES_PATH}}
+
+      - run: flutter clean
 
       - run: flutter pub get
 
