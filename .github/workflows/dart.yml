@@ -40,10 +40,10 @@ jobs:
       - run: |
           echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > ${{env.ANDROID_STORE_FILE_PATH}}
           echo storeFile=\${{ env.STORE_FILE_PATH }} >> ${{env.PROPERTIES_PATH}}
-      
-      - run: |
+      - name: Parse JSON
+        shell: bash
+        run: |
           echo "${{ toJSON(secrets.GOOGLE_PLAY_KEY_FILE) }}" > ${{env.GOOGLE_STORE_CREDENTAILS_PATH}}
-
 
       - uses: ruby/setup-ruby@v1
         with:
