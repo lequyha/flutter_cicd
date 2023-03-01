@@ -15,6 +15,7 @@ env:
   PROPERTIES_PATH: "./android/key.properties"
   ANDROID_STORE_FILE_PATH: "./android/keystore.jks"
   STORE_FILE_PATH: "../keystore.jks"
+  GOOGLE_STORE_CREDENTAILS_PATH: "./android/fastlane/play-store-credentials.json"
 
 
 jobs:
@@ -39,6 +40,10 @@ jobs:
       - run: |
           echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > ${{env.ANDROID_STORE_FILE_PATH}}
           echo storeFile=\${{ env.STORE_FILE_PATH }} >> ${{env.PROPERTIES_PATH}}
+      
+        - run: |
+          echo "${{ secrets.GOOGLE_PLAY_KEY_FILE }}" > ${{env.GOOGLE_STORE_CREDENTAILS_PATH}}
+
 
       - uses: ruby/setup-ruby@v1
         with:
@@ -54,7 +59,7 @@ jobs:
         run: flutter build appbundle
 
       - name: Execute Fastlane command
-        run: cd android && fastlane beta
+        run: cd android && bundle exec fastlane beta
 
 
 
