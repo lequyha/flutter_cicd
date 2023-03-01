@@ -15,7 +15,7 @@ env:
   PROPERTIES_PATH: "./android/key.properties"
   ANDROID_STORE_FILE_PATH: "./android/keystore.jks"
   STORE_FILE_PATH: "../keystore.jks"
-  GOOGLE_STORE_CREDENTAILS_PATH: "./android/play-store-credentials.json"
+  GOOGLE_STORE_CREDENTAILS_PATH: "./play-store-credentials.json"
 
 
 jobs:
