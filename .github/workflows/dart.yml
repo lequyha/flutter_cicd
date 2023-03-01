@@ -14,7 +14,7 @@ env:
   JAVA_VERSION: "12.x"
   FLUTTER_CHANNEL: "stable"
   PROPERTIES_PATH: "./android/key.properties"
-  STORE_File_PATH: "./android/upload-keystore.jks"
+  STORE_FILE_PATH: "./android/upload-keystore.jks"
 
 
 jobs:
@@ -30,19 +30,21 @@ jobs:
         with:
           channel: ${{env.FLUTTER_CHANNEL}}
 
-      # Creating the key.properties file
+      - name: Creating the key.properties file
       - run: |
           echo keyPassword=\${{ secrets.ANDROID_KEYALIAS_NAME }} > ${{env.PROPERTIES_PATH}}
           echo storePassword=\${{ secrets.ANDROID_KEYSTORE_PASS }} >> ${{env.PROPERTIES_PATH}}
           echo keyAlias=\${{ secrets.ANDROID_KEYALIAS_NAME }} >> ${{env.PROPERTIES_PATH}}
 
-      # Decoding base64 key into a file
+      - name: Decoding base64 key into a file
       - run: |
-          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > ${{env.STORE_File_PATH}}
-          echo storeFile=\${{ secrets.STORE_File_PATH }} >> ${{env.PROPERTIES_PATH}}
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > ${{env.STORE_FILE_PATH}}
+          echo storeFile=\${{ env.STORE_FILE_PATH }} >> ${{env.PROPERTIES_PATH}}
 
-      # Get dependencies and make assigned appbundle
-      - run: |
-          flutter pub get
-          flutter build appbundle
+      - name: Get dependencies
+      - run: flutter pub get
+        -
+      - name: Make assigned appbundle
+      - run: flutter build appbundle
+
 
