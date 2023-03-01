@@ -14,7 +14,7 @@ env:
   JAVA_VERSION: "12.x"
   FLUTTER_CHANNEL: "stable"
   PROPERTIES_PATH: "./android/key.properties"
-  STORE_FILE_PATH: "./android/upload-keystore.jks"
+  STORE_FILE_PATH: "../keystore.jks"
 
 
 jobs:
