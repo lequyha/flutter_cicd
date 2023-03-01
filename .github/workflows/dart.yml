@@ -26,19 +26,19 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: Decode Keystore
-        id: decode_keystore
-        uses: timheuer/base64-to-file@v1
+      - name: Sign APK
+        id: sign_apk
+        uses: r0adkll/sign-android-release@v1
         with:
-          fileName: 'keystore/upload-keystore.jks'
-          encodedString: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          releaseDirectory: app/build/outputs/apk/release
+          signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          alias: ${{ secrets.ANDROID_KEYALIAS_NAME }}
+          keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASS }}
+          keyPassword: ${{ secrets.ANDROID_KEYALIAS_PASS }}
 
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build apk
-        run: flutter build apk
-        env:
-          SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_KEYALIAS_NAME }}
-          SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_KEYALIAS_PASS }}
-          SIGNING_STORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASS }}
+      - name: Build appbundle
+        run: flutter build appbundle
+
