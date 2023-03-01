@@ -43,7 +43,7 @@ jobs:
 
       - name: Get dependencies
       - run: flutter pub get
-        -
+
       - name: Make assigned appbundle
       - run: flutter build appbundle
 
