@@ -44,28 +44,10 @@ jobs:
 
       - run: flutter build appbundle
 
-      - name: Create github artifact release
-        uses: ncipollo/release-action@v1
+      - uses: actions/upload-artifact@v2
         with:
-          name: android-release
-          path: build/app/outputs/bundle/release/app-release.aab
+          name: build-Android
+          path: build/Android
 
-  deploy:
-    name: Deploy Android Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Get Android Build from artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: android-release
-      - name: Release Build to internal track
-        uses: r0adkll/upload-google-play@v1
-        with:
-          serviceAccountJsonPlainText: ${{ secrets.GOOGLE_PLAY_KEY_FILE }}
-          packageName: flutter.hien.test
-          releaseFiles: app-release.aab
-          track: internal
-          status: draft
 
 
