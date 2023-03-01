@@ -24,28 +24,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-java@v2
+
+      - name: Install Java
+        uses: actions/setup-java@v2
         with:
           distribution: 'zulu'
           java-version: '11'
-      - uses: subosito/flutter-action@v2
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
         with:
           channel: ${{env.FLUTTER_CHANNEL}}
 
-      - run: |
+      - name: Add Keystore
+        run: |
           echo keyPassword=\${{ secrets.ANDROID_KEYALIAS_PASS }} > ${{env.PROPERTIES_PATH}}
           echo storePassword=\${{ secrets.ANDROID_KEYSTORE_PASS }} >> ${{env.PROPERTIES_PATH}}
           echo keyAlias=\${{ secrets.ANDROID_KEYALIAS_NAME }} >> ${{env.PROPERTIES_PATH}}
-
-      - run: |
           echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > ${{env.ANDROID_STORE_FILE_PATH}}
           echo storeFile=\${{ env.STORE_FILE_PATH }} >> ${{env.PROPERTIES_PATH}}
       
-      - run: |
+      - name: Add Google key
+        run: |
           echo "${{ secrets.GOOGLE_PLAY_KEY_FILE }}" > ${{env.GOOGLE_STORE_CREDENTAILS_PATH}}
 
-
-      - uses: ruby/setup-ruby@v1
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1.2'
 
