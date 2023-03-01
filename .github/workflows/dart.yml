@@ -44,10 +44,11 @@ jobs:
 
       - run: flutter build appbundle
 
-      - uses: actions/upload-artifact@v2
+      - name: Upload
+        uses: actions/upload-artifact@v2
         with:
-          name: build-Android
-          path: build/Android
+          name: Build Artifacts
+          path: app/build/outputs/
 
 
 
