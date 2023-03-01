@@ -35,7 +35,9 @@ jobs:
           echo keyAlias=\${{ secrets.ANDROID_KEYALIAS_NAME }} >> ${{env.PROPERTIES_PATH}}
 
       # Decoding base64 key into a file
-      - run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/app/key.jks
+      - run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/upload-keystore.jks
+          echo storeFile=../upload-keystore.jks >> ${{env.PROPERTIES_PATH}}
 
       # Get dependencies and make assigned appbundle
       - run: |
