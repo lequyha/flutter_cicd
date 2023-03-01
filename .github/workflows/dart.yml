@@ -42,7 +42,7 @@ jobs:
           echo storeFile=\${{ env.STORE_FILE_PATH }} >> ${{env.PROPERTIES_PATH}}
       
       - run: |
-          echo "${{ secrets.GOOGLE_PLAY_KEY_FILE }}" > ${{env.GOOGLE_STORE_CREDENTAILS_PATH}}
+          echo "${{ toJSON(secrets.GOOGLE_PLAY_KEY_FILE) }}" > ${{env.GOOGLE_STORE_CREDENTAILS_PATH}}
 
 
       - uses: ruby/setup-ruby@v1
