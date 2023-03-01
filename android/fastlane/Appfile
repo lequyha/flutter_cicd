@@ -1,2 +1,2 @@
-json_key_file "./fastlane/play-store-credentials.json"
+json_key_file "fastlane/play-store-credentials.json"
 package_name("flutter.hien.test") # e.g. com.krausefx.app
