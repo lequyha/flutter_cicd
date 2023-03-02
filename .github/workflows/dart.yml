@@ -15,7 +15,7 @@ env:
   PROPERTIES_PATH: "./android/key.properties"
   ANDROID_STORE_FILE_PATH: "./android/keystore.jks"
   STORE_FILE_PATH: "../keystore.jks"
-  GOOGLE_STORE_CREDENTAILS_PATH: "./play-store-credentials.json"
+  GOOGLE_STORE_CREDENTAILS_PATH: "./android/fastlane/play-store-credentials.json"
 
 
 jobs:
@@ -46,7 +46,7 @@ jobs:
       
       - name: Add Google key
         run: |
-          echo "${{ secrets.GOOGLE_PLAY_KEY_FILE }}" > ${{env.GOOGLE_STORE_CREDENTAILS_PATH}}
+          echo "${{ secrets.GOOGLE_PLAY_KEY_BASE64 }}" | base64 --decode > ${{env.GOOGLE_STORE_CREDENTAILS_PATH}}
 
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
