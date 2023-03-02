@@ -19,6 +19,7 @@ platform :android do
   desc "Runs all the tests"
   lane :test do
     gradle(task: "test")
+    slack(message: "App successfully released!", success: true, slack_url: "https://hooks.slack.com/services/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")
   end
 
   desc "Submit a new Internal Build"
