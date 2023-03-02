@@ -29,7 +29,7 @@ Runs all the tests
 [bundle exec] fastlane android beta
 ```
 
-Submit a new Internal Build
+Build and Deploy to Google Play Internal App Sharing
 
 ### android deploy
 

@@ -22,15 +22,35 @@ platform :android do
     slack(message: "App successfully released!", success: true, slack_url: "https://hooks.slack.com/services/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")
   end
 
-  desc "Submit a new Internal Build"
-  lane :beta do
+  desc "Build and Deploy to Google Play Internal App Sharing"
+  lane :beta  do
+    Dir.chdir "../.." do sh("flutter", "build", "appbundle", "--release") end # Call Flutter Build
     gradle(
-      task: 'bundle',
+      task: 'assemble',
       build_type: 'Release'
     )
-    versions = google_play_track_version_codes(track: "internal")
-    version_code = versions[0]
-    upload_to_play_store(track: 'internal', version_code: version_code + 1, aab: "../build/app/outputs/bundle/release/app-release.aab", release_status: "draft")
+
+    previous_build_number = google_play_track_version_codes(track: "internal")[0]
+
+    current_build_number = previous_build_number + 1
+
+    version_name = flutter_version()["version_name"]
+
+    add_git_tag(
+      grouping: "fastlane-builds",
+      prefix: "android-v#{version_name}-",
+      build_number: current_build_number,
+    )
+
+    upload_to_play_store(
+      track: 'internal', 
+      version_name: "Version" + version_name,
+      version_code: current_build_number, 
+      aab: "../build/app/outputs/bundle/release/app-release.aab", 
+      release_status: "draft"
+    )
+
+    slack(message: "App successfully released!", success: true, slack_url: "https://hooks.slack.com/services/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")
   end
 
   desc "Deploy a new version to the Google Play"
