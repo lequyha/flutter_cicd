@@ -5,42 +5,57 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.0026412">
+      <testcase classname="fastlane.lanes" name="00: default_platform" time="0.002525">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: flutter build appbundle --release" time="15.0790642">
+      <testcase classname="fastlane.lanes" name="01: flutter build appbundle --release" time="15.7098407">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: assembleRelease" time="8.0049137">
+      <testcase classname="fastlane.lanes" name="02: assembleRelease" time="7.7641161">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: google_play_track_version_codes" time="2.8467065">
+      <testcase classname="fastlane.lanes" name="03: google_play_track_version_codes" time="2.9181878">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: flutter_version" time="0.0045427">
+      <testcase classname="fastlane.lanes" name="04: flutter_version" time="0.0073578">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: add_git_tag" time="0.0651753">
+      <testcase classname="fastlane.lanes" name="05: git config --global user.email &apos;lequyha98@gmail.com&apos;" time="0.0490448">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: upload_to_play_store" time="36.913802">
+      <testcase classname="fastlane.lanes" name="06: git config --global user.name &apos;lequyha&apos;" time="0.0419202">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="7: slack" time="1.2650614">
+      <testcase classname="fastlane.lanes" name="07: add_git_tag" time="0.0950813">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="08: upload_to_play_store" time="39.4194747">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="09: push_to_git_remote" time="2.6857551">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="10: slack" time="1.608829">
         
       </testcase>
     

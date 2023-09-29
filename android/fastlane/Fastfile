@@ -40,8 +40,7 @@ platform :android do
     sh "git config --global user.name 'lequyha'"
 
     add_git_tag(
-      grouping: "fastlane-builds",
-      prefix: "android-v#{version_name}-",
+      prefix: "v#{version_name}-",
       build_number: current_build_number,
     )
 
@@ -52,6 +51,8 @@ platform :android do
       aab: "../build/app/outputs/bundle/release/app-release.aab", 
       release_status: "draft"
     )
+
+    push_to_git_remote 
 
     slack(message: "App successfully released!", success: true, slack_url: "https://hooks.slack.com/services/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")
   end
