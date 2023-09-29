@@ -36,6 +36,9 @@ platform :android do
 
     version_name = flutter_version()["version_name"]
 
+    sh "git config --global user.email 'lequyha98@gmail.com'"
+    sh "git config --global user.name 'lequyha'"
+
     add_git_tag(
       grouping: "fastlane-builds",
       prefix: "android-v#{version_name}-",

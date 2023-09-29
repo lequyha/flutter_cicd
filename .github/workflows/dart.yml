@@ -24,6 +24,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - run: git config --global user.name "lequyha"
+      - run: git config --global user.email "lequyha98@gmail.com"
 
       - name: Install Java
         uses: actions/setup-java@v2
