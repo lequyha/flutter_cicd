@@ -5,42 +5,42 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.0018049">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.0026412">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: flutter build appbundle --release" time="14.7404629">
+      <testcase classname="fastlane.lanes" name="1: flutter build appbundle --release" time="15.0790642">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: assembleRelease" time="8.3832991">
+      <testcase classname="fastlane.lanes" name="2: assembleRelease" time="8.0049137">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: google_play_track_version_codes" time="2.8394766">
+      <testcase classname="fastlane.lanes" name="3: google_play_track_version_codes" time="2.8467065">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: flutter_version" time="0.0049509">
+      <testcase classname="fastlane.lanes" name="4: flutter_version" time="0.0045427">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: add_git_tag" time="0.0652899">
+      <testcase classname="fastlane.lanes" name="5: add_git_tag" time="0.0651753">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: upload_to_play_store" time="28.1911686">
+      <testcase classname="fastlane.lanes" name="6: upload_to_play_store" time="36.913802">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="7: slack" time="1.2244056">
+      <testcase classname="fastlane.lanes" name="7: slack" time="1.2650614">
         
       </testcase>
     
