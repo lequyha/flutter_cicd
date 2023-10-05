@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_test_public/src/presentation/views/detail_page/detail_page.dart';
 import 'package:flutter_application_test_public/src/presentation/views/home_page/home_page.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -70,23 +71,28 @@ class NavbarWidget extends HookWidget {
         onPressed: (_) => showModalBottomSheet<void>(
           context: context,
           backgroundColor: Colors.transparent,
-          builder: (BuildContext context) => const Column(
+          builder: (BuildContext context) => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              MenuItemWidget(
+              const MenuItemWidget(
                 assetName: 'assets/scan.svg',
                 semanticsLabel: 'Scan icon',
                 title: 'Scan toa thuốc',
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16.0),
               MenuItemWidget(
                 assetName: 'assets/constact.svg',
                 semanticsLabel: 'Constact icon',
                 title: 'Nhập toa thuốc',
+                onTap: () => PersistentNavBarNavigator.pushNewScreen(
+                  context,
+                  screen: const DetailPage(),
+                  pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                ).then((value) => Navigator.pop(context)),
               ),
-              SizedBox(height: kBottomNavigationBarHeight + 16),
+              const SizedBox(height: kBottomNavigationBarHeight + 16.0),
             ],
           ),
         ),
@@ -152,12 +158,14 @@ class MenuItemWidget extends StatelessWidget {
   final String assetName;
   final String semanticsLabel;
   final String title;
+  final GestureTapCallback? onTap;
 
   const MenuItemWidget({
     super.key,
     required this.assetName,
     required this.semanticsLabel,
     required this.title,
+    this.onTap,
   });
 
   @override
@@ -165,16 +173,17 @@ class MenuItemWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.0),
       ),
-      margin: const EdgeInsets.symmetric(horizontal: 60),
+      margin: const EdgeInsets.symmetric(horizontal: 60.0),
       child: ListTile(
         leading: SvgPicture.asset(
           assetName,
           semanticsLabel: semanticsLabel,
         ),
-        contentPadding: const EdgeInsets.all(8),
+        contentPadding: const EdgeInsets.all(8.0),
         title: Text(title),
+        onTap: onTap,
       ),
     );
   }

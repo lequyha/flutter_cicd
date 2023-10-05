@@ -14,9 +14,6 @@ class HomePage extends StatelessWidget {
     return BlocProvider(
       create: (context) => getIt<CounterBloc>(),
       child: Scaffold(
-        appBar: AppBar(
-          title: Text(title),
-        ),
         backgroundColor: Colors.white,
         body: Center(
           child: Column(
