@@ -17,6 +17,7 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text(title),
         ),
+        backgroundColor: Colors.white,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -36,7 +37,7 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ),
-        floatingActionButton: const IncrementBtn(),
+        // floatingActionButton: const IncrementBtn(),
       ),
     );
   }

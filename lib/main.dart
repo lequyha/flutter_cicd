@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_test_public/src/bloc_observer.dart';
 import 'package:flutter_application_test_public/src/locator.dart';
-import 'package:flutter_application_test_public/src/presentation/views/home_page/home_page.dart';
+import 'package:flutter_application_test_public/src/presentation/widgets/navbar_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(title: 'Flutter Demo Home Page'),
+      home: const NavbarWidget(),
     );
   }
 }
