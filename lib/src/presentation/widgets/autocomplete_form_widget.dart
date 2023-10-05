@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_test_public/src/presentation/widgets/text_form_widget.dart';
 
 class AutoCompleteFormWidget extends StatelessWidget {
   const AutoCompleteFormWidget({Key? key}) : super(key: key);
@@ -49,34 +50,10 @@ class AutoCompleteFormWidget extends StatelessWidget {
             },
             fieldViewBuilder:
                 (context, textEditingController, focusNode, onFieldSubmitted) =>
-                    TextFormField(
+                    TextFormWidget(
               controller: textEditingController,
               focusNode: focusNode,
               onFieldSubmitted: (value) => onFieldSubmitted,
-              decoration: InputDecoration(
-                fillColor: Colors.white,
-                filled: true,
-                isDense: true,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: const BorderSide(color: Colors.white),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: const BorderSide(color: Colors.white),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: const BorderSide(color: Color(0xff209F84)),
-                ),
-                suffixIcon: Visibility(
-                  visible: textEditingController.text.isNotEmpty,
-                  child: IconButton(
-                    onPressed: textEditingController.clear,
-                    icon: const Icon(Icons.clear),
-                  ),
-                ),
-              ),
             ),
             optionsViewBuilder: (context, onSelected, options) => Padding(
               padding: const EdgeInsets.only(top: 8.0),
