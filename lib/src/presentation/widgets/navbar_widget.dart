@@ -70,45 +70,23 @@ class NavbarWidget extends HookWidget {
         onPressed: (_) => showModalBottomSheet<void>(
           context: context,
           backgroundColor: Colors.transparent,
-          builder: (BuildContext context) => Column(
+          builder: (BuildContext context) => const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                margin: const EdgeInsets.symmetric(horizontal: 60),
-                child: ListTile(
-                  leading: SvgPicture.asset(
-                    'assets/scan.svg',
-                    semanticsLabel: 'Scan icon',
-                  ),
-                  contentPadding: const EdgeInsets.all(8),
-                  title: const Text('Scan toa thuốc'),
-                ),
+              MenuItemWidget(
+                assetName: 'assets/scan.svg',
+                semanticsLabel: 'Scan icon',
+                title: 'Scan toa thuốc',
               ),
-              const SizedBox(height: 16),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                margin: const EdgeInsets.symmetric(horizontal: 60),
-                child: ListTile(
-                  leading: SvgPicture.asset(
-                    'assets/constact.svg',
-                    semanticsLabel: 'Constact icon',
-                  ),
-                  contentPadding: const EdgeInsets.all(8),
-                  title: const Text(
-                    'Nhập toa thuốc',
-                  ),
-                ),
+              SizedBox(height: 16),
+              MenuItemWidget(
+                assetName: 'assets/constact.svg',
+                semanticsLabel: 'Constact icon',
+                title: 'Nhập toa thuốc',
               ),
-              const SizedBox(height: kBottomNavigationBarHeight + 16),
+              SizedBox(height: kBottomNavigationBarHeight + 16),
             ],
           ),
         ),
@@ -166,6 +144,38 @@ class NavbarWidget extends HookWidget {
       ),
       navBarStyle:
           NavBarStyle.style12, // Choose the nav bar style with this property.
+    );
+  }
+}
+
+class MenuItemWidget extends StatelessWidget {
+  final String assetName;
+  final String semanticsLabel;
+  final String title;
+
+  const MenuItemWidget({
+    super.key,
+    required this.assetName,
+    required this.semanticsLabel,
+    required this.title,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      margin: const EdgeInsets.symmetric(horizontal: 60),
+      child: ListTile(
+        leading: SvgPicture.asset(
+          assetName,
+          semanticsLabel: semanticsLabel,
+        ),
+        contentPadding: const EdgeInsets.all(8),
+        title: Text(title),
+      ),
     );
   }
 }
