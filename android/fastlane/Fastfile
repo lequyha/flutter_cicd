@@ -52,9 +52,22 @@ platform :android do
       release_status: "draft"
     )
 
-    push_to_git_remote 
-
     slack(message: "App successfully released!", success: true, slack_url: "https://hooks.slack.com/services/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")
+  end
+  
+  # Add this to your Fastfile
+  desc "Upload the APK to Slack channel"
+  private_lane :upload_to_slack do |options|
+    file_path = lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
+    file_name = file_path.gsub(/\/.*\//,"")
+    sh "echo Uploading " + file_name + " to Slack"
+    sh "curl https://slack.com/api/files.upload -F token=\"token\" -F channels=\"#deploy\" -F title=\"" + file_name + "\" -F filename=\"" + file_name + "\" -F file=@" + file_path
+  end
+
+  lane :slackbuild do
+    gradle(task: "assembleRelease")
+    slack(message: "Build Successful!")
+    upload_to_slack()
   end
 
   desc "Deploy a new version to the Google Play"
