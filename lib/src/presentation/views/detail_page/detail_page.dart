@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_test_public/src/presentation/widgets/autocomplete_form_widget.dart';
+import 'package:flutter_application_test_public/src/presentation/widgets/time_form_widget.dart';
 
 class DetailPage extends StatelessWidget {
   static Route<void> route() {
@@ -33,26 +34,13 @@ class DetailPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            AutoCompleteFormWidget(),
-            // TextFormField(
-            //   decoration: InputDecoration(
-            //     fillColor: Colors.white,
-            //     filled: true,
-            //     isDense: true,
-            //     border: OutlineInputBorder(
-            //       borderRadius: BorderRadius.circular(10.0),
-            //       borderSide: const BorderSide(color: Colors.white),
-            //     ),
-            //     enabledBorder: OutlineInputBorder(
-            //       borderRadius: BorderRadius.circular(10.0),
-            //       borderSide: const BorderSide(color: Colors.white),
-            //     ),
-            //     focusedBorder: OutlineInputBorder(
-            //       borderRadius: BorderRadius.circular(10.0),
-            //       borderSide: const BorderSide(color: Color(0xff209F84)),
-            //     ),
-            //   ),
-            // ),
+            AutoCompleteFormWidget(
+              labelText: 'Tên thuốc',
+            ),
+            SizedBox(height: 8.0),
+            TimeFormWidget(
+              labelText: 'Giờ',
+            ),
           ],
         ),
       ),
