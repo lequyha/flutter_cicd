@@ -22,9 +22,10 @@ class TimeFormWidget extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = useTextEditingController();
     DateTime now = DateTime.now();
-    DateTime? initialDateTime = DateTime(now.year, now.month, now.day, 0, 0);
+    DateTime? initialDateTime = DateTime(now.year, now.month, now.day, 8, 0);
+    final controller = useTextEditingController();
+    controller.text = timeFormat?.format(initialDateTime) ?? '';
     ValueNotifier<DateTime> selectedTime = useState(initialDateTime);
     useEffect(() {
       void listener() {
