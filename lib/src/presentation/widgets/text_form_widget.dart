@@ -29,6 +29,7 @@ class TextFormWidget extends HookWidget {
   @override
   Widget build(BuildContext context) {
     ValueNotifier<bool> showClearBtn = useState(false);
+    showClearBtn.value = controller?.text.isNotEmpty ?? false;
     useEffect(() {
       void listener() =>
           showClearBtn.value = controller?.text.isNotEmpty ?? false;
@@ -40,28 +41,36 @@ class TextFormWidget extends HookWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Text.rich(
-          TextSpan(
+        if (labelText != null)
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              TextSpan(
-                text: labelText,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16.0,
+              Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: labelText,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    TextSpan(
+                      text: ' *',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16.0,
+                        color: primaryColor,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              TextSpan(
-                text: ' *',
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16.0,
-                  color: primaryColor,
-                ),
-              ),
+              const SizedBox(height: 8.0),
             ],
           ),
-        ),
-        const SizedBox(height: 8.0),
         TextFormField(
           controller: controller,
           focusNode: focusNode,

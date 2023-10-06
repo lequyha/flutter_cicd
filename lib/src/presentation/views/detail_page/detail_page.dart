@@ -3,6 +3,7 @@ import 'package:flutter_alarm_clock/flutter_alarm_clock.dart';
 import 'package:flutter_application_test_public/main.dart';
 import 'package:flutter_application_test_public/src/const/color.dart';
 import 'package:flutter_application_test_public/src/presentation/widgets/autocomplete_form_widget.dart';
+import 'package:flutter_application_test_public/src/presentation/widgets/select_form_widget.dart';
 import 'package:flutter_application_test_public/src/presentation/widgets/time_form_widget.dart';
 import 'package:intl/intl.dart';
 
@@ -66,18 +67,39 @@ class DetailPage extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 8.0),
-              TimeFormWidget(
-                labelText: 'Giờ',
-                timeFormat: timeFormat,
-                onChanged: (dateTime) {
-                  logger.i(dateTime);
-                },
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: TimeFormWidget(
+                      timeFormat: timeFormat,
+                      onChanged: (dateTime) {
+                        logger.i(dateTime);
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 8.0),
+                  Expanded(
+                    child: SelectFormWidget(
+                      onChanged: (value) {
+                        logger.i(value);
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
