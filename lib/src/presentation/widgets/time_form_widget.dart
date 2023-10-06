@@ -2,13 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_test_public/src/presentation/widgets/text_form_widget.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:intl/intl.dart';
 
 class TimeFormWidget extends HookWidget {
   final String? labelText;
+  final DateFormat? timeFormat;
+  final TextStyle? style;
+  final FormFieldValidator<String?>? validator;
+  final ValueChanged<DateTime?> onChanged;
 
   const TimeFormWidget({
     super.key,
     this.labelText,
+    this.timeFormat,
+    this.style,
+    this.validator,
+    required this.onChanged,
   });
 
   @override
@@ -30,7 +39,9 @@ class TimeFormWidget extends HookWidget {
     return TextFormWidget(
       controller: controller,
       labelText: labelText,
+      style: style,
       readOnly: true,
+      validator: validator,
       onTap: () => showCupertinoModalPopup<DateTime>(
         context: context,
         builder: (context) {
@@ -66,7 +77,8 @@ class TimeFormWidget extends HookWidget {
         },
       ).then((value) {
         if (value != null) {
-          controller.text = value.toIso8601String();
+          onChanged(value);
+          controller.text = timeFormat?.format(value) ?? '';
         }
       }),
     );

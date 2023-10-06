@@ -3,8 +3,15 @@ import 'package:flutter_application_test_public/src/presentation/widgets/text_fo
 
 class AutoCompleteFormWidget extends StatelessWidget {
   final String? labelText;
+  final FormFieldValidator<String?>? validator;
+  final ValueChanged<String> onChanged;
 
-  const AutoCompleteFormWidget({Key? key, this.labelText}) : super(key: key);
+  const AutoCompleteFormWidget({
+    Key? key,
+    this.labelText,
+    this.validator,
+    required this.onChanged,
+  }) : super(key: key);
   static const List<String> _kOptions = <String>[
     'aardvark',
     'bobcat',
@@ -27,10 +34,12 @@ class AutoCompleteFormWidget extends StatelessWidget {
           fieldViewBuilder:
               (context, textEditingController, focusNode, onFieldSubmitted) =>
                   TextFormWidget(
+            onChanged: onChanged,
             labelText: labelText,
             controller: textEditingController,
             focusNode: focusNode,
             onFieldSubmitted: (value) => onFieldSubmitted,
+            validator: validator,
           ),
           optionsViewBuilder: (context, onSelected, options) => Padding(
             padding: const EdgeInsets.only(top: 8.0),

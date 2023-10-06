@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_test_public/src/const/color.dart';
 import 'package:flutter_application_test_public/src/presentation/views/detail_page/detail_page.dart';
 import 'package:flutter_application_test_public/src/presentation/views/home_page/home_page.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -40,7 +41,7 @@ class NavbarWidget extends HookWidget {
           color: index == 2
               ? null
               : selectedIndex == index
-                  ? const Color(0xff209F84)
+                  ? primaryColor
                   : const Color(0xffAEAEAE),
         ),
         onPressed: onPressed,

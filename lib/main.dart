@@ -8,6 +8,8 @@ import 'package:logger/logger.dart';
 final Logger logger = Logger();
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   Bloc.observer = MyBlocObserver();
 
   initializeDependencies();
