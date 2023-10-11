@@ -3,6 +3,6 @@ import 'package:flutter_application_test_public/main.dart';
 import 'package:injectable/injectable.dart';
 
 void main() {
-  Constants.setEnvironment(Environment.prod);
+  FlavourConfig.setEnvironment(Environment.prod);
   initializeApp();
 }

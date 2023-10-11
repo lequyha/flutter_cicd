@@ -18,11 +18,11 @@ void initializeApp() {
 
   late String appTitle;
 
-  if (Constants.whereAmI == Environment.dev) {
+  if (FlavourConfig.whereAmI == Environment.dev) {
     appTitle = 'App Dev';
 
     debugPrint('Flavor: $appTitle');
-  } else if (Constants.whereAmI == Environment.prod) {
+  } else if (FlavourConfig.whereAmI == Environment.prod) {
     appTitle = 'App Prod ';
 
     debugPrint('Flavor: $appTitle');

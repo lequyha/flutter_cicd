@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 
-class Constants {
+class FlavourConfig {
   static late Map<String, dynamic> _config;
 
   static void setEnvironment(String env) {
