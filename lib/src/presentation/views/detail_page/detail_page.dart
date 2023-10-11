@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_alarm_clock/flutter_alarm_clock.dart';
 import 'package:flutter_application_test_public/main.dart';
 import 'package:flutter_application_test_public/src/const/color.dart';
+import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/unit_select_form_widget.dart';
 import 'package:flutter_application_test_public/src/presentation/widgets/autocomplete_form_widget.dart';
-import 'package:flutter_application_test_public/src/presentation/widgets/select_form_widget.dart';
-import 'package:flutter_application_test_public/src/presentation/widgets/time_form_widget.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter_application_test_public/src/presentation/widgets/number_form_widget.dart';
+// import 'package:intl/intl.dart';
 
 class DetailPage extends StatelessWidget {
   static Route<void> route() {
@@ -17,7 +17,7 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    final DateFormat timeFormat = DateFormat('HH:mm a');
+    // final DateFormat timeFormat = DateFormat('HH:mm a');
     return Scaffold(
       backgroundColor: const Color(0xffF5F5F5),
       appBar: AppBar(
@@ -71,12 +71,25 @@ class DetailPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  // Expanded(
+                  //   flex: 2,
+                  //   child: TimeFormWidget(
+                  //     timeFormat: timeFormat,
+                  //     onChanged: (dateTime) {
+                  //       logger.i(dateTime);
+                  //     },
+                  //     validator: (value) {
+                  //       if (value == null || value.isEmpty) {
+                  //         return 'Please enter some text';
+                  //       }
+                  //       return null;
+                  //     },
+                  //   ),
+                  // ),
                   Expanded(
-                    child: TimeFormWidget(
-                      timeFormat: timeFormat,
-                      onChanged: (dateTime) {
-                        logger.i(dateTime);
-                      },
+                    flex: 2,
+                    child: NumberFormWidget(
+                      labelText: 'Tổng số lượng',
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter some text';
@@ -86,18 +99,8 @@ class DetailPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 8.0),
-                  Expanded(
-                    child: SelectFormWidget(
-                      onChanged: (value) {
-                        logger.i(value);
-                      },
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
-                        }
-                        return null;
-                      },
-                    ),
+                  const Expanded(
+                    child: UnitSelectFormWidget(),
                   ),
                 ],
               ),

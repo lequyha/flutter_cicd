@@ -31,6 +31,17 @@ void initializeApp() {
   runApp(const MyApp());
 }
 
+class AppBehavior extends ScrollBehavior {
+  @override
+  Widget buildOverscrollIndicator(
+    BuildContext context,
+    Widget child,
+    ScrollableDetails details,
+  ) {
+    return child;
+  }
+}
+
 class MyApp extends StatelessWidget {
   final String? appTitle;
   const MyApp({super.key, this.appTitle});
@@ -42,7 +53,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const NavbarWidget(),
+      home: ScrollConfiguration(
+        behavior: AppBehavior(),
+        child: const NavbarWidget(),
+      ),
     );
   }
 }

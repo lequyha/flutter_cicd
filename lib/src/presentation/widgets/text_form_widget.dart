@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_application_test_public/src/const/color.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -12,6 +13,9 @@ class TextFormWidget extends HookWidget {
   final TextStyle? style;
   final FormFieldValidator<String?>? validator;
   final ValueChanged<String>? onChanged;
+  final bool hideShowBtn;
+  final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
 
   const TextFormWidget({
     super.key,
@@ -24,6 +28,9 @@ class TextFormWidget extends HookWidget {
     this.style,
     this.validator,
     this.onChanged,
+    this.hideShowBtn = false,
+    this.keyboardType,
+    this.inputFormatters,
   });
 
   @override
@@ -78,6 +85,8 @@ class TextFormWidget extends HookWidget {
           onTap: onTap,
           readOnly: readOnly,
           onChanged: onChanged,
+          keyboardType: keyboardType,
+          inputFormatters: inputFormatters,
           style: style ??
               const TextStyle(
                 fontSize: 18.0,
@@ -102,7 +111,7 @@ class TextFormWidget extends HookWidget {
               borderSide: BorderSide(color: primaryColor),
             ),
             suffixIcon: Visibility(
-              visible: showClearBtn.value,
+              visible: hideShowBtn != true && showClearBtn.value,
               child: IconButton(
                 onPressed: controller?.clear,
                 icon: Icon(
