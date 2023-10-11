@@ -13,6 +13,7 @@ class TimeFormWidget extends HookWidget {
   final Color? fillColor;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
+  final TextAlign? textAlign;
 
   const TimeFormWidget({
     super.key,
@@ -24,6 +25,7 @@ class TimeFormWidget extends HookWidget {
     this.fillColor,
     this.prefixIcon,
     this.suffixIcon,
+    this.textAlign,
   });
 
   @override
@@ -43,6 +45,7 @@ class TimeFormWidget extends HookWidget {
       fillColor: fillColor,
       prefixIcon: prefixIcon,
       suffixIcon: suffixIcon,
+      textAlign: textAlign,
       hideShowBtn: true,
       onTap: () => showCupertinoModalPopup<DateTime>(
         context: context,

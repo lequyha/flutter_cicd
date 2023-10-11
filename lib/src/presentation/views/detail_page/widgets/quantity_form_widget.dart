@@ -24,7 +24,10 @@ class QuantityFormWidget extends StatelessWidget {
       items: items,
       textAlign: TextAlign.center,
       fillColor: const Color(0xffF8F8F6),
-      suffixIcon: const Icon(Icons.keyboard_arrow_down),
+      suffixIcon: const Padding(
+        padding: EdgeInsets.fromLTRB(12, 16, 16, 12),
+        child: Text('Viên'),
+      ),
     );
   }
 }

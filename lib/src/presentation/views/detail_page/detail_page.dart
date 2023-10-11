@@ -121,10 +121,12 @@ class DetailPage extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
+                          flex: 2,
                           child: TimeFormWidget(
                             onChanged: (dateTime) {
                               logger.i(dateTime);
                             },
+                            textAlign: TextAlign.center,
                             fillColor: const Color(0xffF8F8F6),
                             prefixIcon: const Icon(Icons.schedule),
                             validator: (value) {
