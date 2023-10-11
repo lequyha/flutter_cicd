@@ -18,6 +18,7 @@ class ScrollSelectFormWidget extends HookWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final TextAlign? textAlign;
+  final Color? fillColor;
 
   const ScrollSelectFormWidget({
     Key? key,
@@ -31,6 +32,7 @@ class ScrollSelectFormWidget extends HookWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.textAlign,
+    this.fillColor,
   }) : super(key: key);
 
   @override
@@ -49,6 +51,7 @@ class ScrollSelectFormWidget extends HookWidget {
       prefixIcon: prefixIcon,
       suffixIcon: suffixIcon,
       textAlign: textAlign,
+      fillColor: fillColor,
       onTap: () => showCupertinoModalPopup<SelectItemModel?>(
         context: context,
         builder: (context) => Container(

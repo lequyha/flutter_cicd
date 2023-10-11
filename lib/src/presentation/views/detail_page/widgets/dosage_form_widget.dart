@@ -3,13 +3,17 @@ import 'package:flutter_application_test_public/src/const/color.dart';
 import 'package:flutter_application_test_public/src/domain/models/select_item_model.dart';
 import 'package:flutter_application_test_public/src/presentation/widgets/scroll_select_form_widget.dart';
 
-class FrequencySelectFormWidget extends StatelessWidget {
-  const FrequencySelectFormWidget({super.key});
+class DosageFormWidget extends StatelessWidget {
+  const DosageFormWidget({super.key});
 
   static const List<SelectItemModel> items = [
-    SelectItemModel(label: 'Hằng ngày', value: 0),
-    SelectItemModel(label: 'Ngày cụ thể', value: 1),
-    SelectItemModel(label: 'Khoảng thời gian', value: 2),
+    SelectItemModel(label: '1 lần/ ngày', value: 1),
+    SelectItemModel(label: '2 lần/ ngày', value: 2),
+    SelectItemModel(label: '3 lần/ ngày', value: 3),
+    SelectItemModel(label: '4 lần/ ngày', value: 4),
+    SelectItemModel(label: '5 lần/ ngày', value: 5),
+    SelectItemModel(label: '6 lần/ ngày', value: 6),
+    SelectItemModel(label: 'Tùy chỉnh', value: 0),
   ];
 
   @override
@@ -19,7 +23,8 @@ class FrequencySelectFormWidget extends StatelessWidget {
       initialItem: items.isNotEmpty ? items.first : null,
       hideShowBtn: true,
       items: items,
-      labelText: 'Tần suất',
+      labelText: 'Thời gian và liều lượng',
+      fillColor: const Color(0xffF8F8F6),
       suffixIcon: Material(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),

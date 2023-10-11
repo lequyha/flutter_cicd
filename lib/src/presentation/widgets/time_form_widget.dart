@@ -10,6 +10,9 @@ class TimeFormWidget extends HookWidget {
   final TextStyle? style;
   final FormFieldValidator<String?>? validator;
   final ValueChanged<DateTime?> onChanged;
+  final Color? fillColor;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
 
   const TimeFormWidget({
     super.key,
@@ -18,31 +21,29 @@ class TimeFormWidget extends HookWidget {
     this.style,
     this.validator,
     required this.onChanged,
+    this.fillColor,
+    this.prefixIcon,
+    this.suffixIcon,
   });
 
   @override
   Widget build(BuildContext context) {
     DateTime now = DateTime.now();
     DateTime? initialDateTime = DateTime(now.year, now.month, now.day, 8, 0);
-    final controller = useTextEditingController();
-    controller.text = timeFormat?.format(initialDateTime) ?? '';
-    ValueNotifier<DateTime> selectedTime = useState(initialDateTime);
-    useEffect(() {
-      void listener() {
-        if (controller.text.isEmpty) {
-          selectedTime.value = initialDateTime;
-        }
-      }
-
-      controller.addListener(listener);
-      return () => controller.removeListener(listener);
-    }, [controller]);
+    final controller = useTextEditingController(
+        text: (timeFormat ?? DateFormat('HH:mm a')).format(initialDateTime));
+    final ValueNotifier<DateTime> selectedTime = useState(initialDateTime);
+    final ValueNotifier<DateTime> currentTime = useState(initialDateTime);
     return TextFormWidget(
       controller: controller,
       labelText: labelText,
       style: style,
       readOnly: true,
       validator: validator,
+      fillColor: fillColor,
+      prefixIcon: prefixIcon,
+      suffixIcon: suffixIcon,
+      hideShowBtn: true,
       onTap: () => showCupertinoModalPopup<DateTime>(
         context: context,
         builder: (context) {
@@ -58,8 +59,7 @@ class TimeFormWidget extends HookWidget {
               children: [
                 CupertinoButton(
                   child: const Text('OK'),
-                  onPressed: () =>
-                      Navigator.of(context).pop(selectedTime.value),
+                  onPressed: () => Navigator.of(context).pop(currentTime.value),
                 ),
                 SizedBox(
                   height: 220,
@@ -68,8 +68,7 @@ class TimeFormWidget extends HookWidget {
                     mode: CupertinoDatePickerMode.time,
                     use24hFormat: true,
                     minuteInterval: 5,
-                    onDateTimeChanged: (newTime) =>
-                        selectedTime.value = newTime,
+                    onDateTimeChanged: (newTime) => currentTime.value = newTime,
                   ),
                 ),
               ],
@@ -79,7 +78,8 @@ class TimeFormWidget extends HookWidget {
       ).then((value) {
         if (value != null) {
           onChanged(value);
-          controller.text = timeFormat?.format(value) ?? '';
+          selectedTime.value = currentTime.value;
+          controller.text = (timeFormat ?? DateFormat('HH:mm a')).format(value);
         }
       }),
     );

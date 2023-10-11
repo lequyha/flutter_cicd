@@ -19,6 +19,7 @@ class TextFormWidget extends HookWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final TextAlign? textAlign;
+  final Color? fillColor;
 
   const TextFormWidget({
     super.key,
@@ -37,6 +38,7 @@ class TextFormWidget extends HookWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.textAlign,
+    this.fillColor,
   });
 
   @override
@@ -103,7 +105,7 @@ class TextFormWidget extends HookWidget {
           autovalidateMode: AutovalidateMode.onUserInteraction,
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.only(left: 12.0),
-            fillColor: Colors.white,
+            fillColor: fillColor ?? Colors.white,
             filled: true,
             isDense: true,
             border: OutlineInputBorder(

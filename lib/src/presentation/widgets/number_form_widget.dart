@@ -6,11 +6,19 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 class NumberFormWidget extends HookWidget {
   final String? labelText;
   final FormFieldValidator<String?>? validator;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
+  final TextAlign? textAlign;
+  final Color? fillColor;
 
   const NumberFormWidget({
     super.key,
     this.labelText,
     this.validator,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.textAlign,
+    this.fillColor,
   });
 
   @override
@@ -21,6 +29,10 @@ class NumberFormWidget extends HookWidget {
       controller: controller,
       keyboardType: TextInputType.number,
       validator: validator,
+      prefixIcon: prefixIcon,
+      suffixIcon: suffixIcon,
+      textAlign: textAlign,
+      fillColor: fillColor,
       inputFormatters: <TextInputFormatter>[
         FilteringTextInputFormatter.digitsOnly
       ],
