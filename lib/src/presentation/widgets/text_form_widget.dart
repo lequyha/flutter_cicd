@@ -16,6 +16,9 @@ class TextFormWidget extends HookWidget {
   final bool hideShowBtn;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
+  final TextAlign? textAlign;
 
   const TextFormWidget({
     super.key,
@@ -31,6 +34,9 @@ class TextFormWidget extends HookWidget {
     this.hideShowBtn = false,
     this.keyboardType,
     this.inputFormatters,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.textAlign,
   });
 
   @override
@@ -87,6 +93,7 @@ class TextFormWidget extends HookWidget {
           onChanged: onChanged,
           keyboardType: keyboardType,
           inputFormatters: inputFormatters,
+          textAlign: textAlign ?? TextAlign.start,
           style: style ??
               const TextStyle(
                 fontSize: 18.0,
@@ -95,6 +102,7 @@ class TextFormWidget extends HookWidget {
           validator: validator,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           decoration: InputDecoration(
+            contentPadding: const EdgeInsets.only(left: 12.0),
             fillColor: Colors.white,
             filled: true,
             isDense: true,
@@ -110,16 +118,18 @@ class TextFormWidget extends HookWidget {
               borderRadius: BorderRadius.circular(10.0),
               borderSide: BorderSide(color: primaryColor),
             ),
-            suffixIcon: Visibility(
-              visible: hideShowBtn != true && showClearBtn.value,
-              child: IconButton(
-                onPressed: controller?.clear,
-                icon: Icon(
-                  Icons.cancel,
-                  color: primaryColor,
+            prefixIcon: prefixIcon,
+            suffixIcon: suffixIcon ??
+                Visibility(
+                  visible: hideShowBtn != true && showClearBtn.value,
+                  child: IconButton(
+                    onPressed: controller?.clear,
+                    icon: Icon(
+                      Icons.cancel,
+                      color: primaryColor,
+                    ),
+                  ),
                 ),
-              ),
-            ),
           ),
         ),
       ],

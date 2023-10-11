@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_alarm_clock/flutter_alarm_clock.dart';
 import 'package:flutter_application_test_public/main.dart';
 import 'package:flutter_application_test_public/src/const/color.dart';
+import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/frequency_select_from_widget.dart';
 import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/unit_select_form_widget.dart';
 import 'package:flutter_application_test_public/src/presentation/widgets/autocomplete_form_widget.dart';
 import 'package:flutter_application_test_public/src/presentation/widgets/number_form_widget.dart';
@@ -104,6 +105,8 @@ class DetailPage extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(height: 8.0),
+              const FrequencySelectFormWidget(),
             ],
           ),
         ),
