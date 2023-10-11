@@ -4,6 +4,7 @@ import 'package:flutter_application_test_public/main.dart';
 import 'package:flutter_application_test_public/src/const/color.dart';
 import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/dosage_form_widget.dart';
 import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/frequency_from_widget.dart';
+import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/icon_picker_widget.dart';
 import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/quantity_form_widget.dart';
 import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/unit_form_widget.dart';
 import 'package:flutter_application_test_public/src/presentation/widgets/autocomplete_form_widget.dart';
@@ -143,6 +144,8 @@ class DetailPage extends StatelessWidget {
                         ),
                       ],
                     ),
+                    const SizedBox(height: 8.0),
+                    const IconPickerWidget(),
                   ],
                 ),
               ),

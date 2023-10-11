@@ -43,7 +43,7 @@ class TextFormWidget extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    ValueNotifier<bool> showClearBtn = useState(false);
+    final ValueNotifier<bool> showClearBtn = useState(false);
     showClearBtn.value = controller?.text.isNotEmpty ?? false;
     useEffect(() {
       void listener() =>
