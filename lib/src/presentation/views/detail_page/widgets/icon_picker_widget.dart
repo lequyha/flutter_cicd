@@ -62,6 +62,7 @@ class IconPickerWidget extends HookWidget {
           ),
         Container(
           decoration: const BoxDecoration(
+            color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(10.0)),
           ),
           child: Column(
@@ -84,7 +85,7 @@ class IconPickerWidget extends HookWidget {
                   ],
                 ),
                 child: AspectRatio(
-                  aspectRatio: 7,
+                  aspectRatio: 8,
                   child: CarouselSlider.builder(
                     itemCount: 19,
                     itemBuilder: (context, index, realIndex) => AspectRatio(
@@ -133,35 +134,33 @@ class IconPickerWidget extends HookWidget {
                   ),
                 ),
               ),
-              AspectRatio(
-                aspectRatio: 3,
+              ScrollConfiguration(
+                behavior: AppBehavior(),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: ScrollConfiguration(
-                    behavior: AppBehavior(),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Flexible(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Flexible(
+                        child: ColorPickerWidget(
+                          iconIndex: selectedIconIndex.value,
+                          onChanged: (value) => selectedIconIndex.value = value,
+                        ),
+                      ),
+                      const SizedBox(height: 8.0),
+                      Flexible(
+                        child: Visibility(
+                          visible: currentIndex.value == 18,
                           child: ColorPickerWidget(
-                            iconIndex: selectedIconIndex.value,
+                            iconIndex: selectedIconIndex2.value,
                             onChanged: (value) =>
-                                selectedIconIndex.value = value,
+                                selectedIconIndex2.value = value,
                           ),
                         ),
-                        const SizedBox(height: 8.0),
-                        Flexible(
-                          child: Visibility(
-                            visible: currentIndex.value == 18,
-                            child: ColorPickerWidget(
-                              iconIndex: selectedIconIndex2.value,
-                              onChanged: (value) =>
-                                  selectedIconIndex2.value = value,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
