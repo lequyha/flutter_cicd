@@ -50,107 +50,86 @@ class DetailPage extends StatelessWidget {
       ),
       body: Form(
         key: formKey,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  AutoCompleteFormWidget(
-                    labelText: 'Tên thuốc',
-                    onChanged: (value) {
-                      logger.i(value);
-                    },
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 8.0),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: NumberFormWidget(
-                          labelText: 'Tổng số lượng',
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter some text';
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                      const SizedBox(width: 8.0),
-                      const Expanded(
-                        child: UnitFormWidget(),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8.0),
-                  const FrequencyFormWidget(),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Container(
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(35.0),
-                  ),
-                  color: Colors.white,
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                AutoCompleteFormWidget(
+                  labelText: 'Tên thuốc',
+                  onChanged: (value) {
+                    logger.i(value);
+                  },
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
                 ),
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                const SizedBox(height: 16.0),
+                Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 16.0),
-                    const DosageFormWidget(),
-                    const SizedBox(height: 8.0),
-                    Row(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: TimeFormWidget(
-                            onChanged: (dateTime) {
-                              logger.i(dateTime);
-                            },
-                            textAlign: TextAlign.center,
-                            fillColor: const Color(0xffF8F8F6),
-                            prefixIcon: const Icon(Icons.schedule),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter some text';
-                              }
-                              return null;
-                            },
-                          ),
-                        ),
-                        const SizedBox(width: 8.0),
-                        const Expanded(
-                          child: QuantityFormWidget(),
-                        ),
-                      ],
+                    Expanded(
+                      flex: 2,
+                      child: NumberFormWidget(
+                        labelText: 'Tổng số lượng',
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter some text';
+                          }
+                          return null;
+                        },
+                      ),
                     ),
-                    const SizedBox(height: 8.0),
-                    const IconPickerWidget(),
+                    const SizedBox(width: 16.0),
+                    const Expanded(
+                      child: UnitFormWidget(),
+                    ),
                   ],
                 ),
-              ),
+                const SizedBox(height: 16.0),
+                const FrequencyFormWidget(),
+                const SizedBox(height: 16.0),
+                const DosageFormWidget(),
+                const SizedBox(height: 16.0),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: TimeFormWidget(
+                        onChanged: (dateTime) {
+                          logger.i(dateTime);
+                        },
+                        textAlign: TextAlign.center,
+                        prefixIcon: const Icon(Icons.schedule),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter some text';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    const SizedBox(width: 16.0),
+                    const Expanded(
+                      child: QuantityFormWidget(),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16.0),
+                const IconPickerWidget(
+                  labelText: 'Ảnh hiển thị',
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

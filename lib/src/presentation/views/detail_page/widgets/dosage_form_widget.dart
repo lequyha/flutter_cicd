@@ -24,7 +24,6 @@ class DosageFormWidget extends StatelessWidget {
       hideShowBtn: true,
       items: items,
       labelText: 'Thời gian và liều lượng',
-      fillColor: const Color(0xffF8F8F6),
       suffixIcon: Material(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),

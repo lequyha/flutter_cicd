@@ -23,7 +23,6 @@ class QuantityFormWidget extends StatelessWidget {
       hideShowBtn: true,
       items: items,
       textAlign: TextAlign.center,
-      fillColor: const Color(0xffF8F8F6),
       suffixIcon: const Padding(
         padding: EdgeInsets.fromLTRB(12, 16, 16, 12),
         child: Text('Viên'),
