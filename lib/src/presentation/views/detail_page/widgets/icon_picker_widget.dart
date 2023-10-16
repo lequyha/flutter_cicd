@@ -2,9 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_test_public/main.dart';
 import 'package:flutter_application_test_public/src/const/color.dart';
+import 'package:flutter_application_test_public/src/image_picker_manager.dart';
 import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/color_picker_widget.dart';
+import 'package:flutter_application_test_public/src/presentation/widgets/preview_image_widget.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:image_picker/image_picker.dart';
 
 class IconPickerWidget extends HookWidget {
   final String? labelText;
@@ -23,6 +26,7 @@ class IconPickerWidget extends HookWidget {
     final ValueNotifier<int> currentIndex = useState(0);
     final ValueNotifier<int> selectedIconIndex = useState(0);
     final ValueNotifier<int> selectedIconIndex2 = useState(0);
+    final ValueNotifier<XFile?> selectedImage = useState(null);
     final List<MapEntry<String, Color>> colorStringToColorInIconPickerList =
         colorStringToColorInIconPicker.entries.toList();
     return Column(
@@ -99,11 +103,14 @@ class IconPickerWidget extends HookWidget {
                               const BorderRadius.all(Radius.circular(12.0)),
                         ),
                         child: Center(
-                          child: index != 18
+                          child: index != 2
                               ? SvgPicture.asset(
                                   'assets/${index + 1}.svg',
                                   colorFilter: ColorFilter.mode(
-                                    currentIndex.value == index
+                                    currentIndex.value == index &&
+                                            currentIndex.value != 0 &&
+                                            currentIndex.value != 1 &&
+                                            currentIndex.value != 2
                                         ? colorStringToColorInIconPickerList[
                                                 selectedIconIndex.value]
                                             .value
@@ -136,23 +143,63 @@ class IconPickerWidget extends HookWidget {
               ),
               ScrollConfiguration(
                 behavior: AppBehavior(),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Flexible(
-                        child: ColorPickerWidget(
-                          iconIndex: selectedIconIndex.value,
-                          onChanged: (value) => selectedIconIndex.value = value,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Flexible(
+                      child: Visibility(
+                        visible: currentIndex.value == 1,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                            child: selectedImage.value != null
+                                ? PreviewImageWidget(
+                                    width: 150.0,
+                                    height: 150.0,
+                                    pickedImage: selectedImage.value!,
+                                    onCanceled: () =>
+                                        selectedImage.value = null,
+                                  )
+                                : ElevatedButton(
+                                    onPressed: () => ImagePickerManager()
+                                        .pickImage(
+                                      ImageSource.gallery,
+                                      context: context,
+                                    )
+                                        .then(
+                                      (pickedImage) {
+                                        if (pickedImage != null) {
+                                          selectedImage.value = pickedImage;
+                                        }
+                                      },
+                                    ),
+                                    child: const Text('Chọn ảnh'),
+                                  ),
+                          ),
                         ),
                       ),
-                      const SizedBox(height: 8.0),
-                      Flexible(
-                        child: Visibility(
-                          visible: currentIndex.value == 18,
+                    ),
+                    Flexible(
+                      child: Visibility(
+                        visible:
+                            currentIndex.value != 1 && currentIndex.value != 0,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ColorPickerWidget(
+                            iconIndex: selectedIconIndex.value,
+                            onChanged: (value) =>
+                                selectedIconIndex.value = value,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      child: Visibility(
+                        visible: currentIndex.value == 2,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
                           child: ColorPickerWidget(
                             iconIndex: selectedIconIndex2.value,
                             onChanged: (value) =>
@@ -160,8 +207,8 @@ class IconPickerWidget extends HookWidget {
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ],
