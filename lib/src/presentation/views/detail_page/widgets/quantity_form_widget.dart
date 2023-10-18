@@ -3,7 +3,9 @@ import 'package:flutter_application_test_public/src/domain/models/select_item_mo
 import 'package:flutter_application_test_public/src/presentation/widgets/scroll_select_form_widget.dart';
 
 class QuantityFormWidget extends StatelessWidget {
-  const QuantityFormWidget({super.key});
+  final Widget? suffixIcon;
+
+  const QuantityFormWidget({super.key, this.suffixIcon});
 
   static const List<SelectItemModel> items = [
     SelectItemModel(label: '1', value: 1),
@@ -23,10 +25,7 @@ class QuantityFormWidget extends StatelessWidget {
       hideShowBtn: true,
       items: items,
       textAlign: TextAlign.center,
-      suffixIcon: const Padding(
-        padding: EdgeInsets.fromLTRB(12, 16, 16, 12),
-        child: Text('Viên'),
-      ),
+      suffixIcon: suffixIcon,
     );
   }
 }

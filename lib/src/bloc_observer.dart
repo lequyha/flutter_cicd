@@ -20,23 +20,23 @@ class MyBlocObserver extends BlocObserver {
     );
   }
 
-  @override
-  void onChange(BlocBase bloc, Change change) {
-    super.onChange(bloc, change);
-    logger.i(
-      'onChange -- ${bloc.runtimeType}, $change',
-      time: DateTime.now(),
-    );
-  }
+  // @override
+  // void onChange(BlocBase bloc, Change change) {
+  //   super.onChange(bloc, change);
+  //   logger.i(
+  //     'onChange -- ${bloc.runtimeType}, $change',
+  //     time: DateTime.now(),
+  //   );
+  // }
 
-  @override
-  void onTransition(Bloc bloc, Transition transition) {
-    super.onTransition(bloc, transition);
-    logger.i(
-      'onTransition -- ${bloc.runtimeType}, $transition',
-      time: DateTime.now(),
-    );
-  }
+  // @override
+  // void onTransition(Bloc bloc, Transition transition) {
+  //   super.onTransition(bloc, transition);
+  //   logger.i(
+  //     'onTransition -- ${bloc.runtimeType}, $transition',
+  //     time: DateTime.now(),
+  //   );
+  // }
 
   @override
   void onError(BlocBase bloc, Object error, StackTrace stackTrace) {

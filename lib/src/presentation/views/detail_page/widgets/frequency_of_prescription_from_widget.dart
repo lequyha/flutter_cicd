@@ -3,22 +3,29 @@ import 'package:flutter_application_test_public/src/const/color.dart';
 import 'package:flutter_application_test_public/src/domain/models/select_item_model.dart';
 import 'package:flutter_application_test_public/src/presentation/widgets/scroll_select_form_widget.dart';
 
-class FrequencyFormWidget extends StatelessWidget {
-  const FrequencyFormWidget({super.key});
+const List<SelectItemModel> frequencyOfPrescription = [
+  SelectItemModel(label: 'Hằng ngày', value: 0),
+  SelectItemModel(label: 'Ngày cụ thể', value: 1),
+  SelectItemModel(label: 'Khoảng thời gian', value: 2),
+];
 
-  static const List<SelectItemModel> items = [
-    SelectItemModel(label: 'Hằng ngày', value: 0),
-    SelectItemModel(label: 'Ngày cụ thể', value: 1),
-    SelectItemModel(label: 'Khoảng thời gian', value: 2),
-  ];
+class PrescriptionFrequencyFormWidget extends StatelessWidget {
+  final SelectItemModel? initialValue;
+  final ValueChanged<SelectItemModel?> onChanged;
+
+  const PrescriptionFrequencyFormWidget({
+    super.key,
+    this.initialValue,
+    required this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ScrollSelectFormWidget(
-      onChanged: (value) {},
-      initialItem: items.isNotEmpty ? items.first : null,
+      onChanged: onChanged,
+      initialItem: initialValue,
       hideShowBtn: true,
-      items: items,
+      items: frequencyOfPrescription,
       labelText: 'Tần suất',
       suffixIcon: Material(
         shape: RoundedRectangleBorder(

@@ -10,6 +10,8 @@ class NumberFormWidget extends HookWidget {
   final Widget? suffixIcon;
   final TextAlign? textAlign;
   final Color? fillColor;
+  final ValueChanged<String> onChanged;
+  final String? initialValue;
 
   const NumberFormWidget({
     super.key,
@@ -19,11 +21,13 @@ class NumberFormWidget extends HookWidget {
     this.suffixIcon,
     this.textAlign,
     this.fillColor,
+    required this.onChanged,
+    this.initialValue,
   });
 
   @override
   Widget build(BuildContext context) {
-    final controller = useTextEditingController();
+    final controller = useTextEditingController(text: initialValue);
     return TextFormWidget(
       labelText: labelText,
       controller: controller,
@@ -33,6 +37,7 @@ class NumberFormWidget extends HookWidget {
       suffixIcon: suffixIcon,
       textAlign: textAlign,
       fillColor: fillColor,
+      onChanged: onChanged,
       inputFormatters: <TextInputFormatter>[
         FilteringTextInputFormatter.digitsOnly
       ],

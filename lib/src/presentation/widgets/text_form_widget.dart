@@ -46,8 +46,10 @@ class TextFormWidget extends HookWidget {
     final ValueNotifier<bool> showClearBtn = useState(false);
     showClearBtn.value = controller?.text.isNotEmpty ?? false;
     useEffect(() {
-      void listener() =>
-          showClearBtn.value = controller?.text.isNotEmpty ?? false;
+      void listener() {
+        showClearBtn.value = controller?.text.isNotEmpty ?? false;
+      }
+
       controller?.addListener(listener);
       return () => controller?.removeListener(listener);
     }, [controller]);
@@ -72,14 +74,15 @@ class TextFormWidget extends HookWidget {
                         fontSize: 16.0,
                       ),
                     ),
-                    TextSpan(
-                      text: ' *',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16.0,
-                        color: primaryColor,
+                    if (validator != null)
+                      TextSpan(
+                        text: ' *',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16.0,
+                          color: primaryColor,
+                        ),
                       ),
-                    ),
                   ],
                 ),
               ),
@@ -125,7 +128,12 @@ class TextFormWidget extends HookWidget {
                 Visibility(
                   visible: hideShowBtn != true && showClearBtn.value,
                   child: IconButton(
-                    onPressed: controller?.clear,
+                    onPressed: () {
+                      controller?.clear();
+                      if (onChanged != null) {
+                        onChanged!('');
+                      }
+                    },
                     icon: Icon(
                       Icons.cancel,
                       color: primaryColor,
