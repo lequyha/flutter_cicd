@@ -9,6 +9,7 @@ class DetailState with _$DetailState {
     int? quantity,
     SelectItemModel? unit,
     SelectItemModel? frequency,
+    SelectItemModel? dosage,
   }) = DetailStateTyping;
 
   const factory DetailState.success() = DetailStateSuccess;

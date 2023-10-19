@@ -14,4 +14,9 @@ class DetailEvent with _$DetailEvent {
 
   const factory DetailEvent.onChangedFrequency({SelectItemModel? frequency}) =
       ChangedFrequency;
+
+  const factory DetailEvent.onChangedDosage({SelectItemModel? dosage}) =
+      ChangedDosage;
+
+  const factory DetailEvent.onSavedPrescription() = SavedPrescription;
 }
