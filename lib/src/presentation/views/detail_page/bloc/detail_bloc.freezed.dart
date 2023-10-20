@@ -23,6 +23,8 @@ mixin _$DetailEvent {
     required TResult Function(int? quantity) onChangedQuantity,
     required TResult Function(SelectItemModel? unit) onChangedUnit,
     required TResult Function(SelectItemModel? frequency) onChangedFrequency,
+    required TResult Function(SelectItemModel? dosage) onChangedDosage,
+    required TResult Function() onSavedPrescription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +34,8 @@ mixin _$DetailEvent {
     TResult? Function(int? quantity)? onChangedQuantity,
     TResult? Function(SelectItemModel? unit)? onChangedUnit,
     TResult? Function(SelectItemModel? frequency)? onChangedFrequency,
+    TResult? Function(SelectItemModel? dosage)? onChangedDosage,
+    TResult? Function()? onSavedPrescription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +45,8 @@ mixin _$DetailEvent {
     TResult Function(int? quantity)? onChangedQuantity,
     TResult Function(SelectItemModel? unit)? onChangedUnit,
     TResult Function(SelectItemModel? frequency)? onChangedFrequency,
+    TResult Function(SelectItemModel? dosage)? onChangedDosage,
+    TResult Function()? onSavedPrescription,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +57,8 @@ mixin _$DetailEvent {
     required TResult Function(ChangedQuantity value) onChangedQuantity,
     required TResult Function(ChangedUnit value) onChangedUnit,
     required TResult Function(ChangedFrequency value) onChangedFrequency,
+    required TResult Function(ChangedDosage value) onChangedDosage,
+    required TResult Function(SavedPrescription value) onSavedPrescription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +68,8 @@ mixin _$DetailEvent {
     TResult? Function(ChangedQuantity value)? onChangedQuantity,
     TResult? Function(ChangedUnit value)? onChangedUnit,
     TResult? Function(ChangedFrequency value)? onChangedFrequency,
+    TResult? Function(ChangedDosage value)? onChangedDosage,
+    TResult? Function(SavedPrescription value)? onSavedPrescription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +79,8 @@ mixin _$DetailEvent {
     TResult Function(ChangedQuantity value)? onChangedQuantity,
     TResult Function(ChangedUnit value)? onChangedUnit,
     TResult Function(ChangedFrequency value)? onChangedFrequency,
+    TResult Function(ChangedDosage value)? onChangedDosage,
+    TResult Function(SavedPrescription value)? onSavedPrescription,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -135,6 +147,8 @@ class _$StartedImpl implements _Started {
     required TResult Function(int? quantity) onChangedQuantity,
     required TResult Function(SelectItemModel? unit) onChangedUnit,
     required TResult Function(SelectItemModel? frequency) onChangedFrequency,
+    required TResult Function(SelectItemModel? dosage) onChangedDosage,
+    required TResult Function() onSavedPrescription,
   }) {
     return started();
   }
@@ -147,6 +161,8 @@ class _$StartedImpl implements _Started {
     TResult? Function(int? quantity)? onChangedQuantity,
     TResult? Function(SelectItemModel? unit)? onChangedUnit,
     TResult? Function(SelectItemModel? frequency)? onChangedFrequency,
+    TResult? Function(SelectItemModel? dosage)? onChangedDosage,
+    TResult? Function()? onSavedPrescription,
   }) {
     return started?.call();
   }
@@ -159,6 +175,8 @@ class _$StartedImpl implements _Started {
     TResult Function(int? quantity)? onChangedQuantity,
     TResult Function(SelectItemModel? unit)? onChangedUnit,
     TResult Function(SelectItemModel? frequency)? onChangedFrequency,
+    TResult Function(SelectItemModel? dosage)? onChangedDosage,
+    TResult Function()? onSavedPrescription,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -175,6 +193,8 @@ class _$StartedImpl implements _Started {
     required TResult Function(ChangedQuantity value) onChangedQuantity,
     required TResult Function(ChangedUnit value) onChangedUnit,
     required TResult Function(ChangedFrequency value) onChangedFrequency,
+    required TResult Function(ChangedDosage value) onChangedDosage,
+    required TResult Function(SavedPrescription value) onSavedPrescription,
   }) {
     return started(this);
   }
@@ -187,6 +207,8 @@ class _$StartedImpl implements _Started {
     TResult? Function(ChangedQuantity value)? onChangedQuantity,
     TResult? Function(ChangedUnit value)? onChangedUnit,
     TResult? Function(ChangedFrequency value)? onChangedFrequency,
+    TResult? Function(ChangedDosage value)? onChangedDosage,
+    TResult? Function(SavedPrescription value)? onSavedPrescription,
   }) {
     return started?.call(this);
   }
@@ -199,6 +221,8 @@ class _$StartedImpl implements _Started {
     TResult Function(ChangedQuantity value)? onChangedQuantity,
     TResult Function(ChangedUnit value)? onChangedUnit,
     TResult Function(ChangedFrequency value)? onChangedFrequency,
+    TResult Function(ChangedDosage value)? onChangedDosage,
+    TResult Function(SavedPrescription value)? onSavedPrescription,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -281,6 +305,8 @@ class _$ChangedNameImpl implements ChangedName {
     required TResult Function(int? quantity) onChangedQuantity,
     required TResult Function(SelectItemModel? unit) onChangedUnit,
     required TResult Function(SelectItemModel? frequency) onChangedFrequency,
+    required TResult Function(SelectItemModel? dosage) onChangedDosage,
+    required TResult Function() onSavedPrescription,
   }) {
     return onChangedName(name);
   }
@@ -293,6 +319,8 @@ class _$ChangedNameImpl implements ChangedName {
     TResult? Function(int? quantity)? onChangedQuantity,
     TResult? Function(SelectItemModel? unit)? onChangedUnit,
     TResult? Function(SelectItemModel? frequency)? onChangedFrequency,
+    TResult? Function(SelectItemModel? dosage)? onChangedDosage,
+    TResult? Function()? onSavedPrescription,
   }) {
     return onChangedName?.call(name);
   }
@@ -305,6 +333,8 @@ class _$ChangedNameImpl implements ChangedName {
     TResult Function(int? quantity)? onChangedQuantity,
     TResult Function(SelectItemModel? unit)? onChangedUnit,
     TResult Function(SelectItemModel? frequency)? onChangedFrequency,
+    TResult Function(SelectItemModel? dosage)? onChangedDosage,
+    TResult Function()? onSavedPrescription,
     required TResult orElse(),
   }) {
     if (onChangedName != null) {
@@ -321,6 +351,8 @@ class _$ChangedNameImpl implements ChangedName {
     required TResult Function(ChangedQuantity value) onChangedQuantity,
     required TResult Function(ChangedUnit value) onChangedUnit,
     required TResult Function(ChangedFrequency value) onChangedFrequency,
+    required TResult Function(ChangedDosage value) onChangedDosage,
+    required TResult Function(SavedPrescription value) onSavedPrescription,
   }) {
     return onChangedName(this);
   }
@@ -333,6 +365,8 @@ class _$ChangedNameImpl implements ChangedName {
     TResult? Function(ChangedQuantity value)? onChangedQuantity,
     TResult? Function(ChangedUnit value)? onChangedUnit,
     TResult? Function(ChangedFrequency value)? onChangedFrequency,
+    TResult? Function(ChangedDosage value)? onChangedDosage,
+    TResult? Function(SavedPrescription value)? onSavedPrescription,
   }) {
     return onChangedName?.call(this);
   }
@@ -345,6 +379,8 @@ class _$ChangedNameImpl implements ChangedName {
     TResult Function(ChangedQuantity value)? onChangedQuantity,
     TResult Function(ChangedUnit value)? onChangedUnit,
     TResult Function(ChangedFrequency value)? onChangedFrequency,
+    TResult Function(ChangedDosage value)? onChangedDosage,
+    TResult Function(SavedPrescription value)? onSavedPrescription,
     required TResult orElse(),
   }) {
     if (onChangedName != null) {
@@ -434,6 +470,8 @@ class _$ChangedQuantityImpl implements ChangedQuantity {
     required TResult Function(int? quantity) onChangedQuantity,
     required TResult Function(SelectItemModel? unit) onChangedUnit,
     required TResult Function(SelectItemModel? frequency) onChangedFrequency,
+    required TResult Function(SelectItemModel? dosage) onChangedDosage,
+    required TResult Function() onSavedPrescription,
   }) {
     return onChangedQuantity(quantity);
   }
@@ -446,6 +484,8 @@ class _$ChangedQuantityImpl implements ChangedQuantity {
     TResult? Function(int? quantity)? onChangedQuantity,
     TResult? Function(SelectItemModel? unit)? onChangedUnit,
     TResult? Function(SelectItemModel? frequency)? onChangedFrequency,
+    TResult? Function(SelectItemModel? dosage)? onChangedDosage,
+    TResult? Function()? onSavedPrescription,
   }) {
     return onChangedQuantity?.call(quantity);
   }
@@ -458,6 +498,8 @@ class _$ChangedQuantityImpl implements ChangedQuantity {
     TResult Function(int? quantity)? onChangedQuantity,
     TResult Function(SelectItemModel? unit)? onChangedUnit,
     TResult Function(SelectItemModel? frequency)? onChangedFrequency,
+    TResult Function(SelectItemModel? dosage)? onChangedDosage,
+    TResult Function()? onSavedPrescription,
     required TResult orElse(),
   }) {
     if (onChangedQuantity != null) {
@@ -474,6 +516,8 @@ class _$ChangedQuantityImpl implements ChangedQuantity {
     required TResult Function(ChangedQuantity value) onChangedQuantity,
     required TResult Function(ChangedUnit value) onChangedUnit,
     required TResult Function(ChangedFrequency value) onChangedFrequency,
+    required TResult Function(ChangedDosage value) onChangedDosage,
+    required TResult Function(SavedPrescription value) onSavedPrescription,
   }) {
     return onChangedQuantity(this);
   }
@@ -486,6 +530,8 @@ class _$ChangedQuantityImpl implements ChangedQuantity {
     TResult? Function(ChangedQuantity value)? onChangedQuantity,
     TResult? Function(ChangedUnit value)? onChangedUnit,
     TResult? Function(ChangedFrequency value)? onChangedFrequency,
+    TResult? Function(ChangedDosage value)? onChangedDosage,
+    TResult? Function(SavedPrescription value)? onSavedPrescription,
   }) {
     return onChangedQuantity?.call(this);
   }
@@ -498,6 +544,8 @@ class _$ChangedQuantityImpl implements ChangedQuantity {
     TResult Function(ChangedQuantity value)? onChangedQuantity,
     TResult Function(ChangedUnit value)? onChangedUnit,
     TResult Function(ChangedFrequency value)? onChangedFrequency,
+    TResult Function(ChangedDosage value)? onChangedDosage,
+    TResult Function(SavedPrescription value)? onSavedPrescription,
     required TResult orElse(),
   }) {
     if (onChangedQuantity != null) {
@@ -599,6 +647,8 @@ class _$ChangedUnitImpl implements ChangedUnit {
     required TResult Function(int? quantity) onChangedQuantity,
     required TResult Function(SelectItemModel? unit) onChangedUnit,
     required TResult Function(SelectItemModel? frequency) onChangedFrequency,
+    required TResult Function(SelectItemModel? dosage) onChangedDosage,
+    required TResult Function() onSavedPrescription,
   }) {
     return onChangedUnit(unit);
   }
@@ -611,6 +661,8 @@ class _$ChangedUnitImpl implements ChangedUnit {
     TResult? Function(int? quantity)? onChangedQuantity,
     TResult? Function(SelectItemModel? unit)? onChangedUnit,
     TResult? Function(SelectItemModel? frequency)? onChangedFrequency,
+    TResult? Function(SelectItemModel? dosage)? onChangedDosage,
+    TResult? Function()? onSavedPrescription,
   }) {
     return onChangedUnit?.call(unit);
   }
@@ -623,6 +675,8 @@ class _$ChangedUnitImpl implements ChangedUnit {
     TResult Function(int? quantity)? onChangedQuantity,
     TResult Function(SelectItemModel? unit)? onChangedUnit,
     TResult Function(SelectItemModel? frequency)? onChangedFrequency,
+    TResult Function(SelectItemModel? dosage)? onChangedDosage,
+    TResult Function()? onSavedPrescription,
     required TResult orElse(),
   }) {
     if (onChangedUnit != null) {
@@ -639,6 +693,8 @@ class _$ChangedUnitImpl implements ChangedUnit {
     required TResult Function(ChangedQuantity value) onChangedQuantity,
     required TResult Function(ChangedUnit value) onChangedUnit,
     required TResult Function(ChangedFrequency value) onChangedFrequency,
+    required TResult Function(ChangedDosage value) onChangedDosage,
+    required TResult Function(SavedPrescription value) onSavedPrescription,
   }) {
     return onChangedUnit(this);
   }
@@ -651,6 +707,8 @@ class _$ChangedUnitImpl implements ChangedUnit {
     TResult? Function(ChangedQuantity value)? onChangedQuantity,
     TResult? Function(ChangedUnit value)? onChangedUnit,
     TResult? Function(ChangedFrequency value)? onChangedFrequency,
+    TResult? Function(ChangedDosage value)? onChangedDosage,
+    TResult? Function(SavedPrescription value)? onSavedPrescription,
   }) {
     return onChangedUnit?.call(this);
   }
@@ -663,6 +721,8 @@ class _$ChangedUnitImpl implements ChangedUnit {
     TResult Function(ChangedQuantity value)? onChangedQuantity,
     TResult Function(ChangedUnit value)? onChangedUnit,
     TResult Function(ChangedFrequency value)? onChangedFrequency,
+    TResult Function(ChangedDosage value)? onChangedDosage,
+    TResult Function(SavedPrescription value)? onSavedPrescription,
     required TResult orElse(),
   }) {
     if (onChangedUnit != null) {
@@ -766,6 +826,8 @@ class _$ChangedFrequencyImpl implements ChangedFrequency {
     required TResult Function(int? quantity) onChangedQuantity,
     required TResult Function(SelectItemModel? unit) onChangedUnit,
     required TResult Function(SelectItemModel? frequency) onChangedFrequency,
+    required TResult Function(SelectItemModel? dosage) onChangedDosage,
+    required TResult Function() onSavedPrescription,
   }) {
     return onChangedFrequency(frequency);
   }
@@ -778,6 +840,8 @@ class _$ChangedFrequencyImpl implements ChangedFrequency {
     TResult? Function(int? quantity)? onChangedQuantity,
     TResult? Function(SelectItemModel? unit)? onChangedUnit,
     TResult? Function(SelectItemModel? frequency)? onChangedFrequency,
+    TResult? Function(SelectItemModel? dosage)? onChangedDosage,
+    TResult? Function()? onSavedPrescription,
   }) {
     return onChangedFrequency?.call(frequency);
   }
@@ -790,6 +854,8 @@ class _$ChangedFrequencyImpl implements ChangedFrequency {
     TResult Function(int? quantity)? onChangedQuantity,
     TResult Function(SelectItemModel? unit)? onChangedUnit,
     TResult Function(SelectItemModel? frequency)? onChangedFrequency,
+    TResult Function(SelectItemModel? dosage)? onChangedDosage,
+    TResult Function()? onSavedPrescription,
     required TResult orElse(),
   }) {
     if (onChangedFrequency != null) {
@@ -806,6 +872,8 @@ class _$ChangedFrequencyImpl implements ChangedFrequency {
     required TResult Function(ChangedQuantity value) onChangedQuantity,
     required TResult Function(ChangedUnit value) onChangedUnit,
     required TResult Function(ChangedFrequency value) onChangedFrequency,
+    required TResult Function(ChangedDosage value) onChangedDosage,
+    required TResult Function(SavedPrescription value) onSavedPrescription,
   }) {
     return onChangedFrequency(this);
   }
@@ -818,6 +886,8 @@ class _$ChangedFrequencyImpl implements ChangedFrequency {
     TResult? Function(ChangedQuantity value)? onChangedQuantity,
     TResult? Function(ChangedUnit value)? onChangedUnit,
     TResult? Function(ChangedFrequency value)? onChangedFrequency,
+    TResult? Function(ChangedDosage value)? onChangedDosage,
+    TResult? Function(SavedPrescription value)? onSavedPrescription,
   }) {
     return onChangedFrequency?.call(this);
   }
@@ -830,6 +900,8 @@ class _$ChangedFrequencyImpl implements ChangedFrequency {
     TResult Function(ChangedQuantity value)? onChangedQuantity,
     TResult Function(ChangedUnit value)? onChangedUnit,
     TResult Function(ChangedFrequency value)? onChangedFrequency,
+    TResult Function(ChangedDosage value)? onChangedDosage,
+    TResult Function(SavedPrescription value)? onSavedPrescription,
     required TResult orElse(),
   }) {
     if (onChangedFrequency != null) {
@@ -850,12 +922,326 @@ abstract class ChangedFrequency implements DetailEvent {
 }
 
 /// @nodoc
+abstract class _$$ChangedDosageImplCopyWith<$Res> {
+  factory _$$ChangedDosageImplCopyWith(
+          _$ChangedDosageImpl value, $Res Function(_$ChangedDosageImpl) then) =
+      __$$ChangedDosageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({SelectItemModel? dosage});
+
+  $SelectItemModelCopyWith<$Res>? get dosage;
+}
+
+/// @nodoc
+class __$$ChangedDosageImplCopyWithImpl<$Res>
+    extends _$DetailEventCopyWithImpl<$Res, _$ChangedDosageImpl>
+    implements _$$ChangedDosageImplCopyWith<$Res> {
+  __$$ChangedDosageImplCopyWithImpl(
+      _$ChangedDosageImpl _value, $Res Function(_$ChangedDosageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? dosage = freezed,
+  }) {
+    return _then(_$ChangedDosageImpl(
+      dosage: freezed == dosage
+          ? _value.dosage
+          : dosage // ignore: cast_nullable_to_non_nullable
+              as SelectItemModel?,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SelectItemModelCopyWith<$Res>? get dosage {
+    if (_value.dosage == null) {
+      return null;
+    }
+
+    return $SelectItemModelCopyWith<$Res>(_value.dosage!, (value) {
+      return _then(_value.copyWith(dosage: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ChangedDosageImpl implements ChangedDosage {
+  const _$ChangedDosageImpl({this.dosage});
+
+  @override
+  final SelectItemModel? dosage;
+
+  @override
+  String toString() {
+    return 'DetailEvent.onChangedDosage(dosage: $dosage)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangedDosageImpl &&
+            (identical(other.dosage, dosage) || other.dosage == dosage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, dosage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangedDosageImplCopyWith<_$ChangedDosageImpl> get copyWith =>
+      __$$ChangedDosageImplCopyWithImpl<_$ChangedDosageImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String? name) onChangedName,
+    required TResult Function(int? quantity) onChangedQuantity,
+    required TResult Function(SelectItemModel? unit) onChangedUnit,
+    required TResult Function(SelectItemModel? frequency) onChangedFrequency,
+    required TResult Function(SelectItemModel? dosage) onChangedDosage,
+    required TResult Function() onSavedPrescription,
+  }) {
+    return onChangedDosage(dosage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String? name)? onChangedName,
+    TResult? Function(int? quantity)? onChangedQuantity,
+    TResult? Function(SelectItemModel? unit)? onChangedUnit,
+    TResult? Function(SelectItemModel? frequency)? onChangedFrequency,
+    TResult? Function(SelectItemModel? dosage)? onChangedDosage,
+    TResult? Function()? onSavedPrescription,
+  }) {
+    return onChangedDosage?.call(dosage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String? name)? onChangedName,
+    TResult Function(int? quantity)? onChangedQuantity,
+    TResult Function(SelectItemModel? unit)? onChangedUnit,
+    TResult Function(SelectItemModel? frequency)? onChangedFrequency,
+    TResult Function(SelectItemModel? dosage)? onChangedDosage,
+    TResult Function()? onSavedPrescription,
+    required TResult orElse(),
+  }) {
+    if (onChangedDosage != null) {
+      return onChangedDosage(dosage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(ChangedName value) onChangedName,
+    required TResult Function(ChangedQuantity value) onChangedQuantity,
+    required TResult Function(ChangedUnit value) onChangedUnit,
+    required TResult Function(ChangedFrequency value) onChangedFrequency,
+    required TResult Function(ChangedDosage value) onChangedDosage,
+    required TResult Function(SavedPrescription value) onSavedPrescription,
+  }) {
+    return onChangedDosage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(ChangedName value)? onChangedName,
+    TResult? Function(ChangedQuantity value)? onChangedQuantity,
+    TResult? Function(ChangedUnit value)? onChangedUnit,
+    TResult? Function(ChangedFrequency value)? onChangedFrequency,
+    TResult? Function(ChangedDosage value)? onChangedDosage,
+    TResult? Function(SavedPrescription value)? onSavedPrescription,
+  }) {
+    return onChangedDosage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(ChangedName value)? onChangedName,
+    TResult Function(ChangedQuantity value)? onChangedQuantity,
+    TResult Function(ChangedUnit value)? onChangedUnit,
+    TResult Function(ChangedFrequency value)? onChangedFrequency,
+    TResult Function(ChangedDosage value)? onChangedDosage,
+    TResult Function(SavedPrescription value)? onSavedPrescription,
+    required TResult orElse(),
+  }) {
+    if (onChangedDosage != null) {
+      return onChangedDosage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangedDosage implements DetailEvent {
+  const factory ChangedDosage({final SelectItemModel? dosage}) =
+      _$ChangedDosageImpl;
+
+  SelectItemModel? get dosage;
+  @JsonKey(ignore: true)
+  _$$ChangedDosageImplCopyWith<_$ChangedDosageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SavedPrescriptionImplCopyWith<$Res> {
+  factory _$$SavedPrescriptionImplCopyWith(_$SavedPrescriptionImpl value,
+          $Res Function(_$SavedPrescriptionImpl) then) =
+      __$$SavedPrescriptionImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SavedPrescriptionImplCopyWithImpl<$Res>
+    extends _$DetailEventCopyWithImpl<$Res, _$SavedPrescriptionImpl>
+    implements _$$SavedPrescriptionImplCopyWith<$Res> {
+  __$$SavedPrescriptionImplCopyWithImpl(_$SavedPrescriptionImpl _value,
+      $Res Function(_$SavedPrescriptionImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SavedPrescriptionImpl implements SavedPrescription {
+  const _$SavedPrescriptionImpl();
+
+  @override
+  String toString() {
+    return 'DetailEvent.onSavedPrescription()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SavedPrescriptionImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String? name) onChangedName,
+    required TResult Function(int? quantity) onChangedQuantity,
+    required TResult Function(SelectItemModel? unit) onChangedUnit,
+    required TResult Function(SelectItemModel? frequency) onChangedFrequency,
+    required TResult Function(SelectItemModel? dosage) onChangedDosage,
+    required TResult Function() onSavedPrescription,
+  }) {
+    return onSavedPrescription();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String? name)? onChangedName,
+    TResult? Function(int? quantity)? onChangedQuantity,
+    TResult? Function(SelectItemModel? unit)? onChangedUnit,
+    TResult? Function(SelectItemModel? frequency)? onChangedFrequency,
+    TResult? Function(SelectItemModel? dosage)? onChangedDosage,
+    TResult? Function()? onSavedPrescription,
+  }) {
+    return onSavedPrescription?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String? name)? onChangedName,
+    TResult Function(int? quantity)? onChangedQuantity,
+    TResult Function(SelectItemModel? unit)? onChangedUnit,
+    TResult Function(SelectItemModel? frequency)? onChangedFrequency,
+    TResult Function(SelectItemModel? dosage)? onChangedDosage,
+    TResult Function()? onSavedPrescription,
+    required TResult orElse(),
+  }) {
+    if (onSavedPrescription != null) {
+      return onSavedPrescription();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(ChangedName value) onChangedName,
+    required TResult Function(ChangedQuantity value) onChangedQuantity,
+    required TResult Function(ChangedUnit value) onChangedUnit,
+    required TResult Function(ChangedFrequency value) onChangedFrequency,
+    required TResult Function(ChangedDosage value) onChangedDosage,
+    required TResult Function(SavedPrescription value) onSavedPrescription,
+  }) {
+    return onSavedPrescription(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(ChangedName value)? onChangedName,
+    TResult? Function(ChangedQuantity value)? onChangedQuantity,
+    TResult? Function(ChangedUnit value)? onChangedUnit,
+    TResult? Function(ChangedFrequency value)? onChangedFrequency,
+    TResult? Function(ChangedDosage value)? onChangedDosage,
+    TResult? Function(SavedPrescription value)? onSavedPrescription,
+  }) {
+    return onSavedPrescription?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(ChangedName value)? onChangedName,
+    TResult Function(ChangedQuantity value)? onChangedQuantity,
+    TResult Function(ChangedUnit value)? onChangedUnit,
+    TResult Function(ChangedFrequency value)? onChangedFrequency,
+    TResult Function(ChangedDosage value)? onChangedDosage,
+    TResult Function(SavedPrescription value)? onSavedPrescription,
+    required TResult orElse(),
+  }) {
+    if (onSavedPrescription != null) {
+      return onSavedPrescription(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SavedPrescription implements DetailEvent {
+  const factory SavedPrescription() = _$SavedPrescriptionImpl;
+}
+
+/// @nodoc
 mixin _$DetailState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String? name, int? quantity,
-            SelectItemModel? unit, SelectItemModel? frequency)
+    required TResult Function(
+            String? name,
+            int? quantity,
+            SelectItemModel? unit,
+            SelectItemModel? frequency,
+            SelectItemModel? dosage)
         typing,
     required TResult Function() success,
   }) =>
@@ -864,7 +1250,7 @@ mixin _$DetailState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String? name, int? quantity, SelectItemModel? unit,
-            SelectItemModel? frequency)?
+            SelectItemModel? frequency, SelectItemModel? dosage)?
         typing,
     TResult? Function()? success,
   }) =>
@@ -873,7 +1259,7 @@ mixin _$DetailState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String? name, int? quantity, SelectItemModel? unit,
-            SelectItemModel? frequency)?
+            SelectItemModel? frequency, SelectItemModel? dosage)?
         typing,
     TResult Function()? success,
     required TResult orElse(),
@@ -960,8 +1346,12 @@ class _$DetailStateInitialImpl implements DetailStateInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String? name, int? quantity,
-            SelectItemModel? unit, SelectItemModel? frequency)
+    required TResult Function(
+            String? name,
+            int? quantity,
+            SelectItemModel? unit,
+            SelectItemModel? frequency,
+            SelectItemModel? dosage)
         typing,
     required TResult Function() success,
   }) {
@@ -973,7 +1363,7 @@ class _$DetailStateInitialImpl implements DetailStateInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String? name, int? quantity, SelectItemModel? unit,
-            SelectItemModel? frequency)?
+            SelectItemModel? frequency, SelectItemModel? dosage)?
         typing,
     TResult? Function()? success,
   }) {
@@ -985,7 +1375,7 @@ class _$DetailStateInitialImpl implements DetailStateInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String? name, int? quantity, SelectItemModel? unit,
-            SelectItemModel? frequency)?
+            SelectItemModel? frequency, SelectItemModel? dosage)?
         typing,
     TResult Function()? success,
     required TResult orElse(),
@@ -1045,10 +1435,12 @@ abstract class _$$DetailStateTypingImplCopyWith<$Res> {
       {String? name,
       int? quantity,
       SelectItemModel? unit,
-      SelectItemModel? frequency});
+      SelectItemModel? frequency,
+      SelectItemModel? dosage});
 
   $SelectItemModelCopyWith<$Res>? get unit;
   $SelectItemModelCopyWith<$Res>? get frequency;
+  $SelectItemModelCopyWith<$Res>? get dosage;
 }
 
 /// @nodoc
@@ -1066,6 +1458,7 @@ class __$$DetailStateTypingImplCopyWithImpl<$Res>
     Object? quantity = freezed,
     Object? unit = freezed,
     Object? frequency = freezed,
+    Object? dosage = freezed,
   }) {
     return _then(_$DetailStateTypingImpl(
       name: freezed == name
@@ -1083,6 +1476,10 @@ class __$$DetailStateTypingImplCopyWithImpl<$Res>
       frequency: freezed == frequency
           ? _value.frequency
           : frequency // ignore: cast_nullable_to_non_nullable
+              as SelectItemModel?,
+      dosage: freezed == dosage
+          ? _value.dosage
+          : dosage // ignore: cast_nullable_to_non_nullable
               as SelectItemModel?,
     ));
   }
@@ -1110,13 +1507,25 @@ class __$$DetailStateTypingImplCopyWithImpl<$Res>
       return _then(_value.copyWith(frequency: value));
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SelectItemModelCopyWith<$Res>? get dosage {
+    if (_value.dosage == null) {
+      return null;
+    }
+
+    return $SelectItemModelCopyWith<$Res>(_value.dosage!, (value) {
+      return _then(_value.copyWith(dosage: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$DetailStateTypingImpl implements DetailStateTyping {
   const _$DetailStateTypingImpl(
-      {this.name, this.quantity, this.unit, this.frequency});
+      {this.name, this.quantity, this.unit, this.frequency, this.dosage});
 
   @override
   final String? name;
@@ -1126,10 +1535,12 @@ class _$DetailStateTypingImpl implements DetailStateTyping {
   final SelectItemModel? unit;
   @override
   final SelectItemModel? frequency;
+  @override
+  final SelectItemModel? dosage;
 
   @override
   String toString() {
-    return 'DetailState.typing(name: $name, quantity: $quantity, unit: $unit, frequency: $frequency)';
+    return 'DetailState.typing(name: $name, quantity: $quantity, unit: $unit, frequency: $frequency, dosage: $dosage)';
   }
 
   @override
@@ -1142,11 +1553,13 @@ class _$DetailStateTypingImpl implements DetailStateTyping {
                 other.quantity == quantity) &&
             (identical(other.unit, unit) || other.unit == unit) &&
             (identical(other.frequency, frequency) ||
-                other.frequency == frequency));
+                other.frequency == frequency) &&
+            (identical(other.dosage, dosage) || other.dosage == dosage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, quantity, unit, frequency);
+  int get hashCode =>
+      Object.hash(runtimeType, name, quantity, unit, frequency, dosage);
 
   @JsonKey(ignore: true)
   @override
@@ -1159,12 +1572,16 @@ class _$DetailStateTypingImpl implements DetailStateTyping {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String? name, int? quantity,
-            SelectItemModel? unit, SelectItemModel? frequency)
+    required TResult Function(
+            String? name,
+            int? quantity,
+            SelectItemModel? unit,
+            SelectItemModel? frequency,
+            SelectItemModel? dosage)
         typing,
     required TResult Function() success,
   }) {
-    return typing(name, quantity, unit, frequency);
+    return typing(name, quantity, unit, frequency, dosage);
   }
 
   @override
@@ -1172,11 +1589,11 @@ class _$DetailStateTypingImpl implements DetailStateTyping {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String? name, int? quantity, SelectItemModel? unit,
-            SelectItemModel? frequency)?
+            SelectItemModel? frequency, SelectItemModel? dosage)?
         typing,
     TResult? Function()? success,
   }) {
-    return typing?.call(name, quantity, unit, frequency);
+    return typing?.call(name, quantity, unit, frequency, dosage);
   }
 
   @override
@@ -1184,13 +1601,13 @@ class _$DetailStateTypingImpl implements DetailStateTyping {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String? name, int? quantity, SelectItemModel? unit,
-            SelectItemModel? frequency)?
+            SelectItemModel? frequency, SelectItemModel? dosage)?
         typing,
     TResult Function()? success,
     required TResult orElse(),
   }) {
     if (typing != null) {
-      return typing(name, quantity, unit, frequency);
+      return typing(name, quantity, unit, frequency, dosage);
     }
     return orElse();
   }
@@ -1235,12 +1652,14 @@ abstract class DetailStateTyping implements DetailState {
       {final String? name,
       final int? quantity,
       final SelectItemModel? unit,
-      final SelectItemModel? frequency}) = _$DetailStateTypingImpl;
+      final SelectItemModel? frequency,
+      final SelectItemModel? dosage}) = _$DetailStateTypingImpl;
 
   String? get name;
   int? get quantity;
   SelectItemModel? get unit;
   SelectItemModel? get frequency;
+  SelectItemModel? get dosage;
   @JsonKey(ignore: true)
   _$$DetailStateTypingImplCopyWith<_$DetailStateTypingImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1285,8 +1704,12 @@ class _$DetailStateSuccessImpl implements DetailStateSuccess {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String? name, int? quantity,
-            SelectItemModel? unit, SelectItemModel? frequency)
+    required TResult Function(
+            String? name,
+            int? quantity,
+            SelectItemModel? unit,
+            SelectItemModel? frequency,
+            SelectItemModel? dosage)
         typing,
     required TResult Function() success,
   }) {
@@ -1298,7 +1721,7 @@ class _$DetailStateSuccessImpl implements DetailStateSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String? name, int? quantity, SelectItemModel? unit,
-            SelectItemModel? frequency)?
+            SelectItemModel? frequency, SelectItemModel? dosage)?
         typing,
     TResult? Function()? success,
   }) {
@@ -1310,7 +1733,7 @@ class _$DetailStateSuccessImpl implements DetailStateSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String? name, int? quantity, SelectItemModel? unit,
-            SelectItemModel? frequency)?
+            SelectItemModel? frequency, SelectItemModel? dosage)?
         typing,
     TResult Function()? success,
     required TResult orElse(),

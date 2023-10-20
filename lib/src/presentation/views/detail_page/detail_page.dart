@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_alarm_clock/flutter_alarm_clock.dart';
-import 'package:flutter_application_test_public/main.dart';
 import 'package:flutter_application_test_public/src/const/color.dart';
 import 'package:flutter_application_test_public/src/presentation/views/detail_page/bloc/detail_bloc.dart';
-import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/dosage_form_widget.dart';
-import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/frequency_of_prescription_from_widget.dart';
-import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/icon_picker_widget.dart';
+import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/dosage_of_prescription_form_widget.dart';
+import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/frequency_of_prescription_form_widget.dart';
 import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/name_of_prescription_form_widget.dart';
-import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/quantity_form_widget.dart';
+import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/quantity_and_unit_prescription_form_widget.dart';
+import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/time_of_prescription_form_widget.dart';
 import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/total_quantity_of_prescription_form_widget.dart';
 import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/unit_of_prescription_form_widget.dart';
-import 'package:flutter_application_test_public/src/presentation/widgets/time_form_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DetailPage extends StatelessWidget {
@@ -32,23 +30,33 @@ class DetailPage extends StatelessWidget {
           title: const Text('Thông tin thuốc'),
           centerTitle: true,
           actions: [
-            TextButton(
-              onPressed: () {
-                if (formKey.currentState!.validate()) {
-                  FlutterAlarmClock.createAlarm(
-                    hour: 23,
-                    minutes: 59,
-                    title: 'Uống thuốc',
-                  );
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Processing Data')),
-                  );
-                }
+            BlocBuilder<DetailBloc, DetailState>(
+              buildWhen: (previous, current) => previous != current,
+              builder: (context, state) {
+                return state.when(
+                  initial: () => const SizedBox.shrink(),
+                  typing: (name, quantity, unit, frequency, dosage) =>
+                      TextButton(
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {
+                        FlutterAlarmClock.createAlarm(
+                          hour: 23,
+                          minutes: 59,
+                          title: 'Uống thuốc',
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Processing Data')),
+                        );
+                      }
+                    },
+                    child: const Text(
+                      'Tiếp tục',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  success: () => const SizedBox.shrink(),
+                );
               },
-              child: const Text(
-                'Tiếp tục',
-                style: TextStyle(color: Colors.white),
-              ),
             ),
           ],
         ),
@@ -57,7 +65,7 @@ class DetailPage extends StatelessWidget {
           builder: (context, state) {
             return state.when(
               initial: () => const Text('initial'),
-              typing: (name, quantity, unit, frequency) {
+              typing: (name, quantity, unit, frequency, dosage) {
                 return Form(
                   key: formKey,
                   child: SingleChildScrollView(
@@ -117,42 +125,46 @@ class DetailPage extends StatelessWidget {
                                     ),
                           ),
                           const SizedBox(height: 16.0),
-                          const DosageFormWidget(),
-                          const SizedBox(height: 16.0),
-                          Row(
-                            children: [
-                              Expanded(
-                                flex: 2,
-                                child: TimeFormWidget(
-                                  onChanged: (dateTime) {
-                                    logger.i(dateTime);
-                                  },
-                                  textAlign: TextAlign.center,
-                                  prefixIcon: const Icon(Icons.schedule),
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return 'Please enter some text';
-                                    }
-                                    return null;
-                                  },
-                                ),
-                              ),
-                              const SizedBox(width: 16.0),
-                              Expanded(
-                                child: QuantityFormWidget(
-                                  suffixIcon: Padding(
-                                    padding: const EdgeInsets.fromLTRB(
-                                        12, 16, 16, 12),
-                                    child: Text(unit?.label ?? ''),
-                                  ),
-                                ),
-                              ),
-                            ],
+                          PrescriptionDosageFormWidget(
+                            initialValue: dosage,
+                            onChanged: (value) =>
+                                context.read<DetailBloc>().add(
+                                      DetailEvent.onChangedDosage(
+                                        dosage: value,
+                                      ),
+                                    ),
                           ),
                           const SizedBox(height: 16.0),
-                          const IconPickerWidget(
-                            labelText: 'Ảnh hiển thị',
-                          ),
+                          ...List<Widget>.generate(
+                            dosage?.value ?? 0,
+                            (index) => Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    const Expanded(
+                                      flex: 2,
+                                      child: PresctiptionTimeFormWidget(),
+                                    ),
+                                    const SizedBox(width: 16.0),
+                                    Expanded(
+                                      child:
+                                          QuantityAndUnitPrescriptionFormWidget(
+                                        unitLable: unit?.label,
+                                        onChanged: (value) {},
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 16.0),
+                              ],
+                            ),
+                          ).toList(),
+                          // const IconPickerWidget(
+                          //   labelText: 'Ảnh hiển thị',
+                          // ),
                         ],
                       ),
                     ),

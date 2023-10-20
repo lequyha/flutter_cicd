@@ -42,3 +42,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+.scannerwork
+coverage
+analysis_options.yaml.sonar
+tests.output
