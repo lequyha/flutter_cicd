@@ -6,7 +6,7 @@ const platformMobile = Environment('platformMobile');
 const platformWeb = Environment('platformWeb');
 
 @InjectableInit(preferRelativeImports: true)
-configInjector(
+GetIt configInjector(
   GetIt getIt, {
   String? env,
   EnvironmentFilter? environmentFilter,

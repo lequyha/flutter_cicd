@@ -42,7 +42,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-sonar-project.properties
 .scannerwork
 coverage
 analysis_options.yaml.sonar
