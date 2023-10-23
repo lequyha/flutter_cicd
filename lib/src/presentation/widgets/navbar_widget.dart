@@ -72,7 +72,7 @@ class NavbarWidget extends HookWidget {
         onPressed: (_) => showModalBottomSheet<void>(
           context: context,
           backgroundColor: Colors.transparent,
-          builder: (BuildContext context) => Column(
+          builder: (context) => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
