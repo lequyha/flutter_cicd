@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_alarm_clock/flutter_alarm_clock.dart';
 import 'package:flutter_application_test_public/src/const/color.dart';
+import 'package:flutter_application_test_public/src/core/loading_manager.dart';
+import 'package:flutter_application_test_public/src/locator.dart';
 import 'package:flutter_application_test_public/src/presentation/views/detail_page/bloc/detail_bloc.dart';
 import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/dosage_of_prescription_form_widget.dart';
 import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/frequency_of_prescription_form_widget.dart';
@@ -22,7 +23,8 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     return BlocProvider(
-      create: (context) => DetailBloc()..add(const DetailEvent.started()),
+      create: (context) =>
+          DetailBloc(getIt<LoadingManager>())..add(const DetailEvent.started()),
       child: Scaffold(
         backgroundColor: const Color(0xffF5F5F5),
         appBar: AppBar(
@@ -30,7 +32,13 @@ class DetailPage extends StatelessWidget {
           title: const Text('Thông tin thuốc'),
           centerTitle: true,
           actions: [
-            BlocBuilder<DetailBloc, DetailState>(
+            BlocConsumer<DetailBloc, DetailState>(
+              listenWhen: (previous, current) => previous != current,
+              listener: (context, state) {
+                if (state is DetailStateSuccess) {
+                  Navigator.of(context).pop();
+                }
+              },
               buildWhen: (previous, current) => previous != current,
               builder: (context, state) {
                 return state.when(
@@ -39,14 +47,17 @@ class DetailPage extends StatelessWidget {
                       TextButton(
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        FlutterAlarmClock.createAlarm(
-                          hour: 23,
-                          minutes: 59,
-                          title: 'Uống thuốc',
-                        );
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Processing Data')),
-                        );
+                        context
+                            .read<DetailBloc>()
+                            .add(DetailEvent.onSavedPrescription());
+                        // FlutterAlarmClock.createAlarm(
+                        //   hour: 23,
+                        //   minutes: 59,
+                        //   title: 'Uống thuốc',
+                        // );
+                        // ScaffoldMessenger.of(context).showSnackBar(
+                        //   const SnackBar(content: Text('Processing Data')),
+                        // );
                       }
                     },
                     child: const Text(
@@ -64,7 +75,7 @@ class DetailPage extends StatelessWidget {
           buildWhen: (previous, current) => previous != current,
           builder: (context, state) {
             return state.when(
-              initial: () => const Text('initial'),
+              initial: () => const SizedBox.shrink(),
               typing: (name, quantity, unit, frequency, dosage) {
                 return Form(
                   key: formKey,

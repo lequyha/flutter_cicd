@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter_application_test_public/main.dart';
+import 'package:flutter_application_test_public/src/core/loading_manager.dart';
 import 'package:flutter_application_test_public/src/domain/models/select_item_model.dart';
 import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/dosage_of_prescription_form_widget.dart';
 import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/frequency_of_prescription_form_widget.dart';
@@ -11,62 +11,104 @@ part 'detail_state.dart';
 part 'detail_bloc.freezed.dart';
 
 class DetailBloc extends Bloc<DetailEvent, DetailState> {
-  DetailBloc() : super(const DetailStateInitial()) {
-    on<DetailEvent>((events, emit) {
-      events.map(
-        started: (event) => _started(emit),
-        onChangedName: (event) => _onChangedName(event, emit),
-        onChangedQuantity: (event) => _onChangedQuantity(event, emit),
-        onChangedUnit: (event) => _onChangedUnit(event, emit),
-        onChangedFrequency: (event) => _onChangedFrequency(event, emit),
-        onChangedDosage: (event) => _onChangedDosage(event, emit),
-        onSavedPrescription: (event) => _onSavedPrescription(event, emit),
-      );
-    });
+  final LoadingManager _loadingManager;
+
+  DetailBloc(this._loadingManager) : super(const DetailStateInitial()) {
+    on<DetailEvent>(
+      (events, emit) async {
+        await events.map(
+          started: (event) async => await _started(emit),
+          onChangedName: (event) async => await _onChangedName(event, emit),
+          onChangedQuantity: (event) async =>
+              await _onChangedQuantity(event, emit),
+          onChangedUnit: (event) async => await _onChangedUnit(event, emit),
+          onChangedFrequency: (event) async =>
+              await _onChangedFrequency(event, emit),
+          onChangedDosage: (event) async => await _onChangedDosage(event, emit),
+          onSavedPrescription: (event) async =>
+              await _onSavedPrescription(event, emit),
+        );
+      },
+    );
   }
 
-  void _started(Emitter<DetailState> emit) {
+  Future<void> _started(Emitter<DetailState> emit) async {
+    _showLoadingDialog();
+    await Future.delayed(const Duration(seconds: 1), () {});
     emit(
-      DetailState.typing(
+      DetailStateTyping(
         unit: unitsOfPrescription.first,
         frequency: frequencyOfPrescription.first,
         dosage: dosageOfPrescription.first,
       ),
     );
+    _hideLoadingDialog();
   }
 
-  void _onChangedName(ChangedName event, Emitter<DetailState> emit) {
+  void _showLoadingDialog() => _loadingManager.showLoading();
+
+  void _hideLoadingDialog() => _loadingManager.hideLoading();
+
+  Future<void> _onChangedName(
+    ChangedName event,
+    Emitter<DetailState> emit,
+  ) async {
     if (state is DetailStateTyping) {
-      emit((state as DetailStateTyping).copyWith(name: event.name));
+      emit(
+        (state as DetailStateTyping).copyWith(name: event.name),
+      );
     }
   }
 
-  void _onChangedQuantity(ChangedQuantity event, Emitter<DetailState> emit) {
+  Future<void> _onChangedQuantity(
+    ChangedQuantity event,
+    Emitter<DetailState> emit,
+  ) async {
     if (state is DetailStateTyping) {
-      emit((state as DetailStateTyping).copyWith(quantity: event.quantity));
+      emit(
+        (state as DetailStateTyping).copyWith(quantity: event.quantity),
+      );
     }
   }
 
-  void _onChangedUnit(ChangedUnit event, Emitter<DetailState> emit) {
+  Future<void> _onChangedUnit(
+    ChangedUnit event,
+    Emitter<DetailState> emit,
+  ) async {
     if (state is DetailStateTyping) {
-      emit((state as DetailStateTyping).copyWith(unit: event.unit));
+      emit(
+        (state as DetailStateTyping).copyWith(unit: event.unit),
+      );
     }
   }
 
-  void _onChangedFrequency(ChangedFrequency event, Emitter<DetailState> emit) {
+  Future<void> _onChangedFrequency(
+    ChangedFrequency event,
+    Emitter<DetailState> emit,
+  ) async {
     if (state is DetailStateTyping) {
-      emit((state as DetailStateTyping).copyWith(frequency: event.frequency));
+      emit(
+        (state as DetailStateTyping).copyWith(frequency: event.frequency),
+      );
     }
   }
 
-  void _onChangedDosage(ChangedDosage event, Emitter<DetailState> emit) {
+  Future<void> _onChangedDosage(
+    ChangedDosage event,
+    Emitter<DetailState> emit,
+  ) async {
     if (state is DetailStateTyping) {
-      emit((state as DetailStateTyping).copyWith(dosage: event.dosage));
+      emit(
+        (state as DetailStateTyping).copyWith(dosage: event.dosage),
+      );
     }
   }
 
-  void _onSavedPrescription(
-      SavedPrescription event, Emitter<DetailState> emit) {
-    logger.i(state);
+  Future<void> _onSavedPrescription(
+      SavedPrescription event, Emitter<DetailState> emit) async {
+    _showLoadingDialog();
+    await Future.delayed(const Duration(seconds: 5), () {});
+    emit(DetailStateSuccess());
+    _hideLoadingDialog();
   }
 }
