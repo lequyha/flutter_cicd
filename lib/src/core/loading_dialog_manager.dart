@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_test_public/src/core/loading_manager.dart';
 
@@ -25,19 +24,20 @@ class LoadingDialogManager {
     }
   }
 
-  void _showLoadingDialog(BuildContext context) => showCupertinoDialog(
+  void _showLoadingDialog(BuildContext context) => showDialog(
         context: _globalContext,
         builder: (context) => Center(
           child: Container(
             height: 100,
             width: 100,
+            padding: EdgeInsets.all(32.0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(
                 Radius.circular(10.0),
               ),
             ),
-            child: CupertinoActivityIndicator(),
+            child: CircularProgressIndicator(),
           ),
         ),
       );

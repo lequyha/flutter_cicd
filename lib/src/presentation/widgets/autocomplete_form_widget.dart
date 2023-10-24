@@ -42,15 +42,17 @@ class AutoCompleteFormWidget extends HookWidget {
             textEditingController,
             focusNode,
             onFieldSubmitted,
-          ) =>
-              TextFormWidget(
-            onChanged: onChanged,
-            labelText: labelText,
-            controller: textEditingController,
-            focusNode: focusNode,
-            onFieldSubmitted: (value) => onFieldSubmitted,
-            validator: validator,
-          ),
+          ) {
+            return TextFormWidget(
+              key: key,
+              onChanged: onChanged,
+              labelText: labelText,
+              controller: textEditingController,
+              focusNode: focusNode,
+              onFieldSubmitted: (value) => onFieldSubmitted,
+              validator: validator,
+            );
+          },
           optionsViewBuilder: (context, onSelected, options) => Padding(
             padding: const EdgeInsets.only(top: 8.0),
             child: Align(

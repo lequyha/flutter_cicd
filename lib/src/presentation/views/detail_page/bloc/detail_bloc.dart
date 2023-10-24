@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter_application_test_public/src/core/loading_manager.dart';
 import 'package:flutter_application_test_public/src/domain/models/select_item_model.dart';
-import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/dosage_of_prescription_form_widget.dart';
-import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/frequency_of_prescription_form_widget.dart';
-import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/unit_of_prescription_form_widget.dart';
+import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/dosage_drop_down.dart';
+import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/frequency_drop_down.dart';
+import 'package:flutter_application_test_public/src/presentation/views/detail_page/widgets/unit_drop_down.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'detail_event.dart';
@@ -14,26 +14,19 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
   final LoadingManager _loadingManager;
 
   DetailBloc(this._loadingManager) : super(const DetailStateInitial()) {
-    on<DetailEvent>(
-      (events, emit) async {
-        await events.map(
-          started: (event) async => await _started(emit),
-          onChangedName: (event) async => await _onChangedName(event, emit),
-          onChangedQuantity: (event) async =>
-              await _onChangedQuantity(event, emit),
-          onChangedUnit: (event) async => await _onChangedUnit(event, emit),
-          onChangedFrequency: (event) async =>
-              await _onChangedFrequency(event, emit),
-          onChangedDosage: (event) async => await _onChangedDosage(event, emit),
-          onSavedPrescription: (event) async =>
-              await _onSavedPrescription(event, emit),
-        );
-      },
-    );
+    on<Started>(_started);
+    on<ChangedName>(_onChangedName);
+    on<ChangedTotalQuantity>(_onChangedTotalQuantity);
+    on<ChangedUnit>(_onChangedUnit);
+    on<ChangedFrequency>(_onChangedFrequency);
+    on<ChangedDosage>(_onChangedDosage);
+    on<SavedPrescription>(_onSavedPrescription);
   }
 
-  Future<void> _started(Emitter<DetailState> emit) async {
-    _showLoadingDialog();
+  Future<void> _started(
+    Started event,
+    Emitter<DetailState> emit,
+  ) async {
     await Future.delayed(const Duration(seconds: 1), () {});
     emit(
       DetailStateTyping(
@@ -42,7 +35,6 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
         dosage: dosageOfPrescription.first,
       ),
     );
-    _hideLoadingDialog();
   }
 
   void _showLoadingDialog() => _loadingManager.showLoading();
@@ -60,8 +52,8 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
     }
   }
 
-  Future<void> _onChangedQuantity(
-    ChangedQuantity event,
+  Future<void> _onChangedTotalQuantity(
+    ChangedTotalQuantity event,
     Emitter<DetailState> emit,
   ) async {
     if (state is DetailStateTyping) {

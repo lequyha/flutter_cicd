@@ -20,7 +20,7 @@ mixin _$DetailEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String? name) onChangedName,
-    required TResult Function(int? quantity) onChangedQuantity,
+    required TResult Function(int? quantity) onChangedTotalQuantity,
     required TResult Function(SelectItemModel? unit) onChangedUnit,
     required TResult Function(SelectItemModel? frequency) onChangedFrequency,
     required TResult Function(SelectItemModel? dosage) onChangedDosage,
@@ -31,7 +31,7 @@ mixin _$DetailEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String? name)? onChangedName,
-    TResult? Function(int? quantity)? onChangedQuantity,
+    TResult? Function(int? quantity)? onChangedTotalQuantity,
     TResult? Function(SelectItemModel? unit)? onChangedUnit,
     TResult? Function(SelectItemModel? frequency)? onChangedFrequency,
     TResult? Function(SelectItemModel? dosage)? onChangedDosage,
@@ -42,7 +42,7 @@ mixin _$DetailEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String? name)? onChangedName,
-    TResult Function(int? quantity)? onChangedQuantity,
+    TResult Function(int? quantity)? onChangedTotalQuantity,
     TResult Function(SelectItemModel? unit)? onChangedUnit,
     TResult Function(SelectItemModel? frequency)? onChangedFrequency,
     TResult Function(SelectItemModel? dosage)? onChangedDosage,
@@ -52,9 +52,10 @@ mixin _$DetailEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(Started value) started,
     required TResult Function(ChangedName value) onChangedName,
-    required TResult Function(ChangedQuantity value) onChangedQuantity,
+    required TResult Function(ChangedTotalQuantity value)
+        onChangedTotalQuantity,
     required TResult Function(ChangedUnit value) onChangedUnit,
     required TResult Function(ChangedFrequency value) onChangedFrequency,
     required TResult Function(ChangedDosage value) onChangedDosage,
@@ -63,9 +64,9 @@ mixin _$DetailEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(Started value)? started,
     TResult? Function(ChangedName value)? onChangedName,
-    TResult? Function(ChangedQuantity value)? onChangedQuantity,
+    TResult? Function(ChangedTotalQuantity value)? onChangedTotalQuantity,
     TResult? Function(ChangedUnit value)? onChangedUnit,
     TResult? Function(ChangedFrequency value)? onChangedFrequency,
     TResult? Function(ChangedDosage value)? onChangedDosage,
@@ -74,9 +75,9 @@ mixin _$DetailEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     TResult Function(ChangedName value)? onChangedName,
-    TResult Function(ChangedQuantity value)? onChangedQuantity,
+    TResult Function(ChangedTotalQuantity value)? onChangedTotalQuantity,
     TResult Function(ChangedUnit value)? onChangedUnit,
     TResult Function(ChangedFrequency value)? onChangedFrequency,
     TResult Function(ChangedDosage value)? onChangedDosage,
@@ -122,7 +123,7 @@ class __$$StartedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
+class _$StartedImpl implements Started {
   const _$StartedImpl();
 
   @override
@@ -144,7 +145,7 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String? name) onChangedName,
-    required TResult Function(int? quantity) onChangedQuantity,
+    required TResult Function(int? quantity) onChangedTotalQuantity,
     required TResult Function(SelectItemModel? unit) onChangedUnit,
     required TResult Function(SelectItemModel? frequency) onChangedFrequency,
     required TResult Function(SelectItemModel? dosage) onChangedDosage,
@@ -158,7 +159,7 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String? name)? onChangedName,
-    TResult? Function(int? quantity)? onChangedQuantity,
+    TResult? Function(int? quantity)? onChangedTotalQuantity,
     TResult? Function(SelectItemModel? unit)? onChangedUnit,
     TResult? Function(SelectItemModel? frequency)? onChangedFrequency,
     TResult? Function(SelectItemModel? dosage)? onChangedDosage,
@@ -172,7 +173,7 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String? name)? onChangedName,
-    TResult Function(int? quantity)? onChangedQuantity,
+    TResult Function(int? quantity)? onChangedTotalQuantity,
     TResult Function(SelectItemModel? unit)? onChangedUnit,
     TResult Function(SelectItemModel? frequency)? onChangedFrequency,
     TResult Function(SelectItemModel? dosage)? onChangedDosage,
@@ -188,9 +189,10 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(Started value) started,
     required TResult Function(ChangedName value) onChangedName,
-    required TResult Function(ChangedQuantity value) onChangedQuantity,
+    required TResult Function(ChangedTotalQuantity value)
+        onChangedTotalQuantity,
     required TResult Function(ChangedUnit value) onChangedUnit,
     required TResult Function(ChangedFrequency value) onChangedFrequency,
     required TResult Function(ChangedDosage value) onChangedDosage,
@@ -202,9 +204,9 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(Started value)? started,
     TResult? Function(ChangedName value)? onChangedName,
-    TResult? Function(ChangedQuantity value)? onChangedQuantity,
+    TResult? Function(ChangedTotalQuantity value)? onChangedTotalQuantity,
     TResult? Function(ChangedUnit value)? onChangedUnit,
     TResult? Function(ChangedFrequency value)? onChangedFrequency,
     TResult? Function(ChangedDosage value)? onChangedDosage,
@@ -216,9 +218,9 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     TResult Function(ChangedName value)? onChangedName,
-    TResult Function(ChangedQuantity value)? onChangedQuantity,
+    TResult Function(ChangedTotalQuantity value)? onChangedTotalQuantity,
     TResult Function(ChangedUnit value)? onChangedUnit,
     TResult Function(ChangedFrequency value)? onChangedFrequency,
     TResult Function(ChangedDosage value)? onChangedDosage,
@@ -232,8 +234,8 @@ class _$StartedImpl implements _Started {
   }
 }
 
-abstract class _Started implements DetailEvent {
-  const factory _Started() = _$StartedImpl;
+abstract class Started implements DetailEvent {
+  const factory Started() = _$StartedImpl;
 }
 
 /// @nodoc
@@ -302,7 +304,7 @@ class _$ChangedNameImpl implements ChangedName {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String? name) onChangedName,
-    required TResult Function(int? quantity) onChangedQuantity,
+    required TResult Function(int? quantity) onChangedTotalQuantity,
     required TResult Function(SelectItemModel? unit) onChangedUnit,
     required TResult Function(SelectItemModel? frequency) onChangedFrequency,
     required TResult Function(SelectItemModel? dosage) onChangedDosage,
@@ -316,7 +318,7 @@ class _$ChangedNameImpl implements ChangedName {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String? name)? onChangedName,
-    TResult? Function(int? quantity)? onChangedQuantity,
+    TResult? Function(int? quantity)? onChangedTotalQuantity,
     TResult? Function(SelectItemModel? unit)? onChangedUnit,
     TResult? Function(SelectItemModel? frequency)? onChangedFrequency,
     TResult? Function(SelectItemModel? dosage)? onChangedDosage,
@@ -330,7 +332,7 @@ class _$ChangedNameImpl implements ChangedName {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String? name)? onChangedName,
-    TResult Function(int? quantity)? onChangedQuantity,
+    TResult Function(int? quantity)? onChangedTotalQuantity,
     TResult Function(SelectItemModel? unit)? onChangedUnit,
     TResult Function(SelectItemModel? frequency)? onChangedFrequency,
     TResult Function(SelectItemModel? dosage)? onChangedDosage,
@@ -346,9 +348,10 @@ class _$ChangedNameImpl implements ChangedName {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(Started value) started,
     required TResult Function(ChangedName value) onChangedName,
-    required TResult Function(ChangedQuantity value) onChangedQuantity,
+    required TResult Function(ChangedTotalQuantity value)
+        onChangedTotalQuantity,
     required TResult Function(ChangedUnit value) onChangedUnit,
     required TResult Function(ChangedFrequency value) onChangedFrequency,
     required TResult Function(ChangedDosage value) onChangedDosage,
@@ -360,9 +363,9 @@ class _$ChangedNameImpl implements ChangedName {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(Started value)? started,
     TResult? Function(ChangedName value)? onChangedName,
-    TResult? Function(ChangedQuantity value)? onChangedQuantity,
+    TResult? Function(ChangedTotalQuantity value)? onChangedTotalQuantity,
     TResult? Function(ChangedUnit value)? onChangedUnit,
     TResult? Function(ChangedFrequency value)? onChangedFrequency,
     TResult? Function(ChangedDosage value)? onChangedDosage,
@@ -374,9 +377,9 @@ class _$ChangedNameImpl implements ChangedName {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     TResult Function(ChangedName value)? onChangedName,
-    TResult Function(ChangedQuantity value)? onChangedQuantity,
+    TResult Function(ChangedTotalQuantity value)? onChangedTotalQuantity,
     TResult Function(ChangedUnit value)? onChangedUnit,
     TResult Function(ChangedFrequency value)? onChangedFrequency,
     TResult Function(ChangedDosage value)? onChangedDosage,
@@ -400,20 +403,20 @@ abstract class ChangedName implements DetailEvent {
 }
 
 /// @nodoc
-abstract class _$$ChangedQuantityImplCopyWith<$Res> {
-  factory _$$ChangedQuantityImplCopyWith(_$ChangedQuantityImpl value,
-          $Res Function(_$ChangedQuantityImpl) then) =
-      __$$ChangedQuantityImplCopyWithImpl<$Res>;
+abstract class _$$ChangedTotalQuantityImplCopyWith<$Res> {
+  factory _$$ChangedTotalQuantityImplCopyWith(_$ChangedTotalQuantityImpl value,
+          $Res Function(_$ChangedTotalQuantityImpl) then) =
+      __$$ChangedTotalQuantityImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int? quantity});
 }
 
 /// @nodoc
-class __$$ChangedQuantityImplCopyWithImpl<$Res>
-    extends _$DetailEventCopyWithImpl<$Res, _$ChangedQuantityImpl>
-    implements _$$ChangedQuantityImplCopyWith<$Res> {
-  __$$ChangedQuantityImplCopyWithImpl(
-      _$ChangedQuantityImpl _value, $Res Function(_$ChangedQuantityImpl) _then)
+class __$$ChangedTotalQuantityImplCopyWithImpl<$Res>
+    extends _$DetailEventCopyWithImpl<$Res, _$ChangedTotalQuantityImpl>
+    implements _$$ChangedTotalQuantityImplCopyWith<$Res> {
+  __$$ChangedTotalQuantityImplCopyWithImpl(_$ChangedTotalQuantityImpl _value,
+      $Res Function(_$ChangedTotalQuantityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -421,7 +424,7 @@ class __$$ChangedQuantityImplCopyWithImpl<$Res>
   $Res call({
     Object? quantity = freezed,
   }) {
-    return _then(_$ChangedQuantityImpl(
+    return _then(_$ChangedTotalQuantityImpl(
       quantity: freezed == quantity
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
@@ -432,22 +435,22 @@ class __$$ChangedQuantityImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangedQuantityImpl implements ChangedQuantity {
-  const _$ChangedQuantityImpl({this.quantity});
+class _$ChangedTotalQuantityImpl implements ChangedTotalQuantity {
+  const _$ChangedTotalQuantityImpl({this.quantity});
 
   @override
   final int? quantity;
 
   @override
   String toString() {
-    return 'DetailEvent.onChangedQuantity(quantity: $quantity)';
+    return 'DetailEvent.onChangedTotalQuantity(quantity: $quantity)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangedQuantityImpl &&
+            other is _$ChangedTotalQuantityImpl &&
             (identical(other.quantity, quantity) ||
                 other.quantity == quantity));
   }
@@ -458,22 +461,23 @@ class _$ChangedQuantityImpl implements ChangedQuantity {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangedQuantityImplCopyWith<_$ChangedQuantityImpl> get copyWith =>
-      __$$ChangedQuantityImplCopyWithImpl<_$ChangedQuantityImpl>(
-          this, _$identity);
+  _$$ChangedTotalQuantityImplCopyWith<_$ChangedTotalQuantityImpl>
+      get copyWith =>
+          __$$ChangedTotalQuantityImplCopyWithImpl<_$ChangedTotalQuantityImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String? name) onChangedName,
-    required TResult Function(int? quantity) onChangedQuantity,
+    required TResult Function(int? quantity) onChangedTotalQuantity,
     required TResult Function(SelectItemModel? unit) onChangedUnit,
     required TResult Function(SelectItemModel? frequency) onChangedFrequency,
     required TResult Function(SelectItemModel? dosage) onChangedDosage,
     required TResult Function() onSavedPrescription,
   }) {
-    return onChangedQuantity(quantity);
+    return onChangedTotalQuantity(quantity);
   }
 
   @override
@@ -481,13 +485,13 @@ class _$ChangedQuantityImpl implements ChangedQuantity {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String? name)? onChangedName,
-    TResult? Function(int? quantity)? onChangedQuantity,
+    TResult? Function(int? quantity)? onChangedTotalQuantity,
     TResult? Function(SelectItemModel? unit)? onChangedUnit,
     TResult? Function(SelectItemModel? frequency)? onChangedFrequency,
     TResult? Function(SelectItemModel? dosage)? onChangedDosage,
     TResult? Function()? onSavedPrescription,
   }) {
-    return onChangedQuantity?.call(quantity);
+    return onChangedTotalQuantity?.call(quantity);
   }
 
   @override
@@ -495,15 +499,15 @@ class _$ChangedQuantityImpl implements ChangedQuantity {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String? name)? onChangedName,
-    TResult Function(int? quantity)? onChangedQuantity,
+    TResult Function(int? quantity)? onChangedTotalQuantity,
     TResult Function(SelectItemModel? unit)? onChangedUnit,
     TResult Function(SelectItemModel? frequency)? onChangedFrequency,
     TResult Function(SelectItemModel? dosage)? onChangedDosage,
     TResult Function()? onSavedPrescription,
     required TResult orElse(),
   }) {
-    if (onChangedQuantity != null) {
-      return onChangedQuantity(quantity);
+    if (onChangedTotalQuantity != null) {
+      return onChangedTotalQuantity(quantity);
     }
     return orElse();
   }
@@ -511,57 +515,59 @@ class _$ChangedQuantityImpl implements ChangedQuantity {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(Started value) started,
     required TResult Function(ChangedName value) onChangedName,
-    required TResult Function(ChangedQuantity value) onChangedQuantity,
+    required TResult Function(ChangedTotalQuantity value)
+        onChangedTotalQuantity,
     required TResult Function(ChangedUnit value) onChangedUnit,
     required TResult Function(ChangedFrequency value) onChangedFrequency,
     required TResult Function(ChangedDosage value) onChangedDosage,
     required TResult Function(SavedPrescription value) onSavedPrescription,
   }) {
-    return onChangedQuantity(this);
+    return onChangedTotalQuantity(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(Started value)? started,
     TResult? Function(ChangedName value)? onChangedName,
-    TResult? Function(ChangedQuantity value)? onChangedQuantity,
+    TResult? Function(ChangedTotalQuantity value)? onChangedTotalQuantity,
     TResult? Function(ChangedUnit value)? onChangedUnit,
     TResult? Function(ChangedFrequency value)? onChangedFrequency,
     TResult? Function(ChangedDosage value)? onChangedDosage,
     TResult? Function(SavedPrescription value)? onSavedPrescription,
   }) {
-    return onChangedQuantity?.call(this);
+    return onChangedTotalQuantity?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     TResult Function(ChangedName value)? onChangedName,
-    TResult Function(ChangedQuantity value)? onChangedQuantity,
+    TResult Function(ChangedTotalQuantity value)? onChangedTotalQuantity,
     TResult Function(ChangedUnit value)? onChangedUnit,
     TResult Function(ChangedFrequency value)? onChangedFrequency,
     TResult Function(ChangedDosage value)? onChangedDosage,
     TResult Function(SavedPrescription value)? onSavedPrescription,
     required TResult orElse(),
   }) {
-    if (onChangedQuantity != null) {
-      return onChangedQuantity(this);
+    if (onChangedTotalQuantity != null) {
+      return onChangedTotalQuantity(this);
     }
     return orElse();
   }
 }
 
-abstract class ChangedQuantity implements DetailEvent {
-  const factory ChangedQuantity({final int? quantity}) = _$ChangedQuantityImpl;
+abstract class ChangedTotalQuantity implements DetailEvent {
+  const factory ChangedTotalQuantity({final int? quantity}) =
+      _$ChangedTotalQuantityImpl;
 
   int? get quantity;
   @JsonKey(ignore: true)
-  _$$ChangedQuantityImplCopyWith<_$ChangedQuantityImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ChangedTotalQuantityImplCopyWith<_$ChangedTotalQuantityImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -644,7 +650,7 @@ class _$ChangedUnitImpl implements ChangedUnit {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String? name) onChangedName,
-    required TResult Function(int? quantity) onChangedQuantity,
+    required TResult Function(int? quantity) onChangedTotalQuantity,
     required TResult Function(SelectItemModel? unit) onChangedUnit,
     required TResult Function(SelectItemModel? frequency) onChangedFrequency,
     required TResult Function(SelectItemModel? dosage) onChangedDosage,
@@ -658,7 +664,7 @@ class _$ChangedUnitImpl implements ChangedUnit {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String? name)? onChangedName,
-    TResult? Function(int? quantity)? onChangedQuantity,
+    TResult? Function(int? quantity)? onChangedTotalQuantity,
     TResult? Function(SelectItemModel? unit)? onChangedUnit,
     TResult? Function(SelectItemModel? frequency)? onChangedFrequency,
     TResult? Function(SelectItemModel? dosage)? onChangedDosage,
@@ -672,7 +678,7 @@ class _$ChangedUnitImpl implements ChangedUnit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String? name)? onChangedName,
-    TResult Function(int? quantity)? onChangedQuantity,
+    TResult Function(int? quantity)? onChangedTotalQuantity,
     TResult Function(SelectItemModel? unit)? onChangedUnit,
     TResult Function(SelectItemModel? frequency)? onChangedFrequency,
     TResult Function(SelectItemModel? dosage)? onChangedDosage,
@@ -688,9 +694,10 @@ class _$ChangedUnitImpl implements ChangedUnit {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(Started value) started,
     required TResult Function(ChangedName value) onChangedName,
-    required TResult Function(ChangedQuantity value) onChangedQuantity,
+    required TResult Function(ChangedTotalQuantity value)
+        onChangedTotalQuantity,
     required TResult Function(ChangedUnit value) onChangedUnit,
     required TResult Function(ChangedFrequency value) onChangedFrequency,
     required TResult Function(ChangedDosage value) onChangedDosage,
@@ -702,9 +709,9 @@ class _$ChangedUnitImpl implements ChangedUnit {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(Started value)? started,
     TResult? Function(ChangedName value)? onChangedName,
-    TResult? Function(ChangedQuantity value)? onChangedQuantity,
+    TResult? Function(ChangedTotalQuantity value)? onChangedTotalQuantity,
     TResult? Function(ChangedUnit value)? onChangedUnit,
     TResult? Function(ChangedFrequency value)? onChangedFrequency,
     TResult? Function(ChangedDosage value)? onChangedDosage,
@@ -716,9 +723,9 @@ class _$ChangedUnitImpl implements ChangedUnit {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     TResult Function(ChangedName value)? onChangedName,
-    TResult Function(ChangedQuantity value)? onChangedQuantity,
+    TResult Function(ChangedTotalQuantity value)? onChangedTotalQuantity,
     TResult Function(ChangedUnit value)? onChangedUnit,
     TResult Function(ChangedFrequency value)? onChangedFrequency,
     TResult Function(ChangedDosage value)? onChangedDosage,
@@ -823,7 +830,7 @@ class _$ChangedFrequencyImpl implements ChangedFrequency {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String? name) onChangedName,
-    required TResult Function(int? quantity) onChangedQuantity,
+    required TResult Function(int? quantity) onChangedTotalQuantity,
     required TResult Function(SelectItemModel? unit) onChangedUnit,
     required TResult Function(SelectItemModel? frequency) onChangedFrequency,
     required TResult Function(SelectItemModel? dosage) onChangedDosage,
@@ -837,7 +844,7 @@ class _$ChangedFrequencyImpl implements ChangedFrequency {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String? name)? onChangedName,
-    TResult? Function(int? quantity)? onChangedQuantity,
+    TResult? Function(int? quantity)? onChangedTotalQuantity,
     TResult? Function(SelectItemModel? unit)? onChangedUnit,
     TResult? Function(SelectItemModel? frequency)? onChangedFrequency,
     TResult? Function(SelectItemModel? dosage)? onChangedDosage,
@@ -851,7 +858,7 @@ class _$ChangedFrequencyImpl implements ChangedFrequency {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String? name)? onChangedName,
-    TResult Function(int? quantity)? onChangedQuantity,
+    TResult Function(int? quantity)? onChangedTotalQuantity,
     TResult Function(SelectItemModel? unit)? onChangedUnit,
     TResult Function(SelectItemModel? frequency)? onChangedFrequency,
     TResult Function(SelectItemModel? dosage)? onChangedDosage,
@@ -867,9 +874,10 @@ class _$ChangedFrequencyImpl implements ChangedFrequency {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(Started value) started,
     required TResult Function(ChangedName value) onChangedName,
-    required TResult Function(ChangedQuantity value) onChangedQuantity,
+    required TResult Function(ChangedTotalQuantity value)
+        onChangedTotalQuantity,
     required TResult Function(ChangedUnit value) onChangedUnit,
     required TResult Function(ChangedFrequency value) onChangedFrequency,
     required TResult Function(ChangedDosage value) onChangedDosage,
@@ -881,9 +889,9 @@ class _$ChangedFrequencyImpl implements ChangedFrequency {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(Started value)? started,
     TResult? Function(ChangedName value)? onChangedName,
-    TResult? Function(ChangedQuantity value)? onChangedQuantity,
+    TResult? Function(ChangedTotalQuantity value)? onChangedTotalQuantity,
     TResult? Function(ChangedUnit value)? onChangedUnit,
     TResult? Function(ChangedFrequency value)? onChangedFrequency,
     TResult? Function(ChangedDosage value)? onChangedDosage,
@@ -895,9 +903,9 @@ class _$ChangedFrequencyImpl implements ChangedFrequency {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     TResult Function(ChangedName value)? onChangedName,
-    TResult Function(ChangedQuantity value)? onChangedQuantity,
+    TResult Function(ChangedTotalQuantity value)? onChangedTotalQuantity,
     TResult Function(ChangedUnit value)? onChangedUnit,
     TResult Function(ChangedFrequency value)? onChangedFrequency,
     TResult Function(ChangedDosage value)? onChangedDosage,
@@ -1001,7 +1009,7 @@ class _$ChangedDosageImpl implements ChangedDosage {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String? name) onChangedName,
-    required TResult Function(int? quantity) onChangedQuantity,
+    required TResult Function(int? quantity) onChangedTotalQuantity,
     required TResult Function(SelectItemModel? unit) onChangedUnit,
     required TResult Function(SelectItemModel? frequency) onChangedFrequency,
     required TResult Function(SelectItemModel? dosage) onChangedDosage,
@@ -1015,7 +1023,7 @@ class _$ChangedDosageImpl implements ChangedDosage {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String? name)? onChangedName,
-    TResult? Function(int? quantity)? onChangedQuantity,
+    TResult? Function(int? quantity)? onChangedTotalQuantity,
     TResult? Function(SelectItemModel? unit)? onChangedUnit,
     TResult? Function(SelectItemModel? frequency)? onChangedFrequency,
     TResult? Function(SelectItemModel? dosage)? onChangedDosage,
@@ -1029,7 +1037,7 @@ class _$ChangedDosageImpl implements ChangedDosage {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String? name)? onChangedName,
-    TResult Function(int? quantity)? onChangedQuantity,
+    TResult Function(int? quantity)? onChangedTotalQuantity,
     TResult Function(SelectItemModel? unit)? onChangedUnit,
     TResult Function(SelectItemModel? frequency)? onChangedFrequency,
     TResult Function(SelectItemModel? dosage)? onChangedDosage,
@@ -1045,9 +1053,10 @@ class _$ChangedDosageImpl implements ChangedDosage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(Started value) started,
     required TResult Function(ChangedName value) onChangedName,
-    required TResult Function(ChangedQuantity value) onChangedQuantity,
+    required TResult Function(ChangedTotalQuantity value)
+        onChangedTotalQuantity,
     required TResult Function(ChangedUnit value) onChangedUnit,
     required TResult Function(ChangedFrequency value) onChangedFrequency,
     required TResult Function(ChangedDosage value) onChangedDosage,
@@ -1059,9 +1068,9 @@ class _$ChangedDosageImpl implements ChangedDosage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(Started value)? started,
     TResult? Function(ChangedName value)? onChangedName,
-    TResult? Function(ChangedQuantity value)? onChangedQuantity,
+    TResult? Function(ChangedTotalQuantity value)? onChangedTotalQuantity,
     TResult? Function(ChangedUnit value)? onChangedUnit,
     TResult? Function(ChangedFrequency value)? onChangedFrequency,
     TResult? Function(ChangedDosage value)? onChangedDosage,
@@ -1073,9 +1082,9 @@ class _$ChangedDosageImpl implements ChangedDosage {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     TResult Function(ChangedName value)? onChangedName,
-    TResult Function(ChangedQuantity value)? onChangedQuantity,
+    TResult Function(ChangedTotalQuantity value)? onChangedTotalQuantity,
     TResult Function(ChangedUnit value)? onChangedUnit,
     TResult Function(ChangedFrequency value)? onChangedFrequency,
     TResult Function(ChangedDosage value)? onChangedDosage,
@@ -1139,7 +1148,7 @@ class _$SavedPrescriptionImpl implements SavedPrescription {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String? name) onChangedName,
-    required TResult Function(int? quantity) onChangedQuantity,
+    required TResult Function(int? quantity) onChangedTotalQuantity,
     required TResult Function(SelectItemModel? unit) onChangedUnit,
     required TResult Function(SelectItemModel? frequency) onChangedFrequency,
     required TResult Function(SelectItemModel? dosage) onChangedDosage,
@@ -1153,7 +1162,7 @@ class _$SavedPrescriptionImpl implements SavedPrescription {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String? name)? onChangedName,
-    TResult? Function(int? quantity)? onChangedQuantity,
+    TResult? Function(int? quantity)? onChangedTotalQuantity,
     TResult? Function(SelectItemModel? unit)? onChangedUnit,
     TResult? Function(SelectItemModel? frequency)? onChangedFrequency,
     TResult? Function(SelectItemModel? dosage)? onChangedDosage,
@@ -1167,7 +1176,7 @@ class _$SavedPrescriptionImpl implements SavedPrescription {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String? name)? onChangedName,
-    TResult Function(int? quantity)? onChangedQuantity,
+    TResult Function(int? quantity)? onChangedTotalQuantity,
     TResult Function(SelectItemModel? unit)? onChangedUnit,
     TResult Function(SelectItemModel? frequency)? onChangedFrequency,
     TResult Function(SelectItemModel? dosage)? onChangedDosage,
@@ -1183,9 +1192,10 @@ class _$SavedPrescriptionImpl implements SavedPrescription {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(Started value) started,
     required TResult Function(ChangedName value) onChangedName,
-    required TResult Function(ChangedQuantity value) onChangedQuantity,
+    required TResult Function(ChangedTotalQuantity value)
+        onChangedTotalQuantity,
     required TResult Function(ChangedUnit value) onChangedUnit,
     required TResult Function(ChangedFrequency value) onChangedFrequency,
     required TResult Function(ChangedDosage value) onChangedDosage,
@@ -1197,9 +1207,9 @@ class _$SavedPrescriptionImpl implements SavedPrescription {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(Started value)? started,
     TResult? Function(ChangedName value)? onChangedName,
-    TResult? Function(ChangedQuantity value)? onChangedQuantity,
+    TResult? Function(ChangedTotalQuantity value)? onChangedTotalQuantity,
     TResult? Function(ChangedUnit value)? onChangedUnit,
     TResult? Function(ChangedFrequency value)? onChangedFrequency,
     TResult? Function(ChangedDosage value)? onChangedDosage,
@@ -1211,9 +1221,9 @@ class _$SavedPrescriptionImpl implements SavedPrescription {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Started value)? started,
     TResult Function(ChangedName value)? onChangedName,
-    TResult Function(ChangedQuantity value)? onChangedQuantity,
+    TResult Function(ChangedTotalQuantity value)? onChangedTotalQuantity,
     TResult Function(ChangedUnit value)? onChangedUnit,
     TResult Function(ChangedFrequency value)? onChangedFrequency,
     TResult Function(ChangedDosage value)? onChangedDosage,

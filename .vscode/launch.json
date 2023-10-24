@@ -13,7 +13,9 @@
             "name": "flutter_cicd (profile mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "profile",
+            "args": ["--flavor", "prod", "--target", "lib/main_prod.dart" ]
+
         },
         {
             "name": "flutter_cicd (release mode)",

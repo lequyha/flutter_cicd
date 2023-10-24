@@ -62,7 +62,7 @@ jobs:
         run: flutter pub get
 
       - name: Prebuild
-        run: flutter build appbundle
+        run: flutter build appbundle --release --flavor prod -t lib/main_prod.dart --obfuscate --split-debug-info=debug_info
 
       - name: Execute Fastlane command
         run: cd android && bundle exec fastlane beta

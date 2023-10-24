@@ -29,6 +29,7 @@ class NumberFormWidget extends HookWidget {
   Widget build(BuildContext context) {
     final controller = useTextEditingController(text: initialValue);
     return TextFormWidget(
+      key: key,
       labelText: labelText,
       controller: controller,
       keyboardType: TextInputType.number,

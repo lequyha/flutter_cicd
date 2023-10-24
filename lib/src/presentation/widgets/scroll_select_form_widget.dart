@@ -42,6 +42,7 @@ class ScrollSelectFormWidget extends HookWidget {
     final ValueNotifier<SelectItemModel?> currentItem = useState(initialItem);
     final ValueNotifier<int> selectedIndex = useState(0);
     return TextFormWidget(
+      key: key,
       controller: controller,
       labelText: labelText,
       style: style,
@@ -80,7 +81,12 @@ class ScrollSelectFormWidget extends HookWidget {
                     onSelectedItemChanged: (index) =>
                         currentItem.value = items[index],
                     itemBuilder: (context, index) => Center(
-                      child: Text(items[index].label.toString()),
+                      child: Text(
+                        key: Key(
+                          items[index].value?.toString() ?? index.toString(),
+                        ),
+                        items[index].label.toString(),
+                      ),
                     ),
                   ),
                 ),
