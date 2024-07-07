@@ -30,19 +30,19 @@ platform :android do
       build_type: 'Release'
     )
 
-    previous_build_number = google_play_track_version_codes(track: "internal")[0]
+    # previous_build_number = google_play_track_version_codes(track: "internal")[0]
 
-    current_build_number = previous_build_number + 1
+    # current_build_number = previous_build_number + 1
 
-    version_name = flutter_version()["version_name"]
+    # version_name = flutter_version()["version_name"]
 
-    sh "git config --global user.email 'lequyha98@gmail.com'"
-    sh "git config --global user.name 'lequyha'"
+    # sh "git config --global user.email 'lequyha98@gmail.com'"
+    # sh "git config --global user.name 'lequyha'"
 
-    add_git_tag(
-      prefix: "v#{version_name}-",
-      build_number: current_build_number,
-    )
+    # add_git_tag(
+    #   prefix: "v#{version_name}-",
+    #   build_number: current_build_number,
+    # )
 
     upload_to_play_store(
       track: 'internal', 
@@ -52,7 +52,7 @@ platform :android do
       release_status: "draft"
     )
 
-    push_to_git_remote 
+    # push_to_git_remote 
 
     slack(message: "App successfully released!", success: true, slack_url: "https://hooks.slack.com/services/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")
   end
