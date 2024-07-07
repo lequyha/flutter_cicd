@@ -34,7 +34,7 @@ platform :android do
 
     # current_build_number = previous_build_number + 1
 
-    # version_name = flutter_version()["version_name"]
+    version_name = flutter_version()["version_name"]
 
     # sh "git config --global user.email 'lequyha98@gmail.com'"
     # sh "git config --global user.name 'lequyha'"
