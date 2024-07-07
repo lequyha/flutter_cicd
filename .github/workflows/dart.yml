@@ -21,6 +21,8 @@ env:
 jobs:
   flutter_build_appbundle:
     name: Run Flutter assigned build appbundle
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
