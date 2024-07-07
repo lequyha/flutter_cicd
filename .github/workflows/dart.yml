@@ -42,10 +42,10 @@ jobs:
 
       - name: Add Keystore
         run: |
-          echo keyPassword=\${{ secrets.ANDROID_KEYALIAS_PASS }} > ${{env.PROPERTIES_PATH}}
+          echo keyPassword=\${{ secrets.ANDROID_KEYALIAS_PASS }} >> ${{env.PROPERTIES_PATH}}
           echo storePassword=\${{ secrets.ANDROID_KEYSTORE_PASS }} >> ${{env.PROPERTIES_PATH}}
           echo keyAlias=\${{ secrets.ANDROID_KEYALIAS_NAME }} >> ${{env.PROPERTIES_PATH}}
-          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > ${{env.ANDROID_STORE_FILE_PATH}}
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode >> ${{env.ANDROID_STORE_FILE_PATH}}
           echo storeFile=\${{ env.STORE_FILE_PATH }} >> ${{env.PROPERTIES_PATH}}
       
       - name: Add Google key
