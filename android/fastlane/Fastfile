@@ -48,7 +48,8 @@ platform :android do
       track: 'internal', 
       version_name: "Version " + version_name,
       version_code: current_build_number, 
-      aab: "../build/app/outputs/bundle/release/app-release.aab", 
+      aab: "../build/app/outputs/bundle/release/app-release.aab",
+      release_status: "draft",
     )
 
     push_to_git_remote 
