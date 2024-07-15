@@ -19,7 +19,6 @@ platform :android do
   desc "Runs all the tests"
   lane :test do
     gradle(task: "test")
-    slack(message: "App successfully released!", success: true, slack_url: "https://hooks.slack.com/services/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")
   end
 
   desc "Build and Deploy to Google Play Internal App Sharing"
@@ -53,8 +52,6 @@ platform :android do
     )
 
     push_to_git_remote 
-
-    # slack(message: "App successfully released!", success: true, slack_url: "https://hooks.slack.com/services/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")
   end
 
   desc "Deploy a new version to the Google Play"
